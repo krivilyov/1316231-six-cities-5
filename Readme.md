@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Ivan Krivilev](https://up.htmlacademy.ru/react/5/user/1316231).
-* Наставник: `Неизвестно`.
+* Наставник: `Елена Феоктистова`.
 
 ---
 
