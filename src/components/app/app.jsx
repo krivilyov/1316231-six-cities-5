@@ -4,7 +4,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import IndexPage from "../index-page/index-page";
 import LoginPage from "../login-page/login-page";
-import FavoritePage from "../favorites-page/favorites-page";
+import FavoritesPage from "../favorites-page/favorites-page";
 import OfferPage from "../offer-page/offer-page";
 
 const App = (props) => {
@@ -20,10 +20,15 @@ const App = (props) => {
           <LoginPage />
         </Route>
         <Route exact path="/favorites">
-          <FavoritePage />
+          <FavoritesPage />
         </Route>
         <Route exact path="/offer/:id">
           <OfferPage />
+        </Route>
+        <Route>
+          <div style={{'display': `flex`, 'align-items': `center`, 'justify-content': `center`, 'height': `100vh`, 'width': `100vw`}}>
+            <h1>Page not found</h1>
+          </div>
         </Route>
       </Switch>
     </BrowserRouter>
