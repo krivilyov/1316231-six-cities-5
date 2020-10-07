@@ -6,6 +6,7 @@ import IndexPage from "../index-page/index-page";
 import LoginPage from "../login-page/login-page";
 import FavoritesPage from "../favorites-page/favorites-page";
 import OfferPage from "../offer-page/offer-page";
+import PageNotFound from "../page-not-found/page-not-found";
 
 const App = (props) => {
   const {offersQuantity} = props;
@@ -26,9 +27,7 @@ const App = (props) => {
           <OfferPage />
         </Route>
         <Route>
-          <div style={{'display': `flex`, 'align-items': `center`, 'justify-content': `center`, 'height': `100vh`, 'width': `100vw`}}>
-            <h1>Page not found</h1>
-          </div>
+          <PageNotFound />
         </Route>
       </Switch>
     </BrowserRouter>
