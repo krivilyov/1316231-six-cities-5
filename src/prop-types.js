@@ -15,11 +15,21 @@ const offerPropType = PropTypes.shape({
   bedroomsMax: PropTypes.string.isRequired,
   guestsMax: PropTypes.string.isRequired,
   amenities: PropTypes.array.isRequired,
-  hostInfo: PropTypes.arrayOf(PropTypes.shape({
+  hostInfo: PropTypes.shape({
     avatar: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     isSuper: PropTypes.bool.isRequired,
-  })).isRequired
+  }).isRequired
 });
 
-export {offerPropType};
+const reviewPropType = PropTypes.shape({
+  reviewId: PropTypes.number.isRequired,
+  reviewDate: PropTypes.string.isRequired,
+  reviewRating: PropTypes.number.isRequired,
+  userInfo: PropTypes.shape({
+    userAvatar: PropTypes.string.isRequired,
+    userName: PropTypes.string.isRequired,
+  }).isRequired
+});
+
+export {offerPropType, reviewPropType};

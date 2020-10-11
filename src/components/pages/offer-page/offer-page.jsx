@@ -1,6 +1,11 @@
 import React from 'react';
+import PropTypes from "prop-types";
+import {offerPropType, reviewPropType} from "../../../prop-types";
+import IndexPage from "../index-page/index-page";
 
-const OfferPage = () => {
+const OfferPage = (props) => {
+  const {offer, reviews} = props;
+
   return (
     <div className="page">
       <header className="header">
@@ -328,6 +333,12 @@ const OfferPage = () => {
       </main>
     </div>
   );
+};
+
+IndexPage.propTypes = {
+  offersQuantity: PropTypes.number.isRequired,
+  offer: PropTypes.objectOf(offerPropType).isRequired,
+  reviews: PropTypes.arrayOf(reviewPropType).isRequired,
 };
 
 export default OfferPage;

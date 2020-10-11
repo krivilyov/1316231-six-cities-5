@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
+import {offerPropType} from "../../prop-types";
 
 const OfferCard = (props) => {
   const {offer} = props;
@@ -12,9 +13,9 @@ const OfferCard = (props) => {
           <span>Premium</span>
         </div>)}
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href="#">
+        <Link to={`/offer/${offer.id}`}>
           <img className="place-card__image" src={offer.pictures[0]} width="260" height="200" alt="Place image" />
-        </a>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
@@ -47,16 +48,7 @@ const OfferCard = (props) => {
 };
 
 OfferCard.propTypes = {
-  offer: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    pictures: PropTypes.array.isRequired,
-    isPremium: PropTypes.bool.isRequired,
-    isBookmark: PropTypes.bool.isRequired,
-    price: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-  })
+  offer: offerPropType
 };
 
 export default OfferCard;
