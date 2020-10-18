@@ -4,3 +4,5 @@ export const OfferType = {
   HOUSE: `House`,
   HOTEL: `Hotel`
 };
+
+export const RADIO_VALUES = [`5`, `4`, `3`, `2`, `1`];
