@@ -5,7 +5,7 @@ import {offerPropType} from "../../prop-types";
 import {OFFER_CARD_TYPE} from "../../const";
 
 const OfferCard = (props) => {
-  const {offer, currentCardType} = props;
+  const {offer, currentCardType, onMouseOverOffer, currentOffer} = props;
   const {id, isPremium, pictures, preview, price, isBookMark, rating, title, type} = offer;
   const isFavoriteType = currentCardType === OFFER_CARD_TYPE.FAVORITE;
 
@@ -23,7 +23,13 @@ const OfferCard = (props) => {
   };
 
   return (
-    <article className={`${getCardClass(`cities__place-card`, `near-places__card`, `favorites__card`)} place-card`}>
+    <article className={`${getCardClass(`cities__place-card`, `near-places__card`, `favorites__card`)} place-card`}
+      onMouseOver={(evt) => {
+        evt.preventDefault();
+        if (currentOffer !== offer) {
+          onMouseOverOffer(offer);
+        }
+      }}>
       {isPremium && (
         <div className="place-card__mark">
           <span>Premium</span>
@@ -69,6 +75,8 @@ const OfferCard = (props) => {
 
 OfferCard.propTypes = {
   offer: offerPropType,
+  currentOffer: offerPropType,
+  onMouseOverOffer: PropTypes.func.isRequired,
   currentCardType: PropTypes.string.isRequired,
 };
 
