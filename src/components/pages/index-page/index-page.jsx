@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import OffersList from "../../offers-list/offers-list";
 import {offerPropType} from "../../../prop-types";
-import {OFFER_CARD_TYPE} from "../../../const"
+import {OFFER_CARD_TYPE} from "../../../const";
 
 const IndexPage = (props) => {
   const {offersQuantity, offers} = props;
