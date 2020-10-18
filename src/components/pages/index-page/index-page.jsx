@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import OffersList from "../../offers-list/offers-list";
 import {offerPropType} from "../../../prop-types";
+import {OFFER_CARD_TYPE} from "../../../const"
 
 const IndexPage = (props) => {
   const {offersQuantity, offers} = props;
@@ -90,7 +91,10 @@ const IndexPage = (props) => {
                 </ul>
               </form>
 
-              <OffersList offers={offers} />
+              <OffersList
+                offers={offers}
+                currentCardType={OFFER_CARD_TYPE.INDEX}
+              />
 
             </section>
             <div className="cities__right-section">

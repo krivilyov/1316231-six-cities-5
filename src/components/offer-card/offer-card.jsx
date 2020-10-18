@@ -1,23 +1,43 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {offerPropType} from "../../prop-types";
+import {OFFER_CARD_TYPE} from "../../const";
 
 const OfferCard = (props) => {
-  const {offer} = props;
-  const {id, isPremium, pictures, price, isBookMark, rating, title, type} = offer;
+  const {offer, currentCardType} = props;
+  const {id, isPremium, pictures, preview, price, isBookMark, rating, title, type} = offer;
+  const isFavoriteType = currentCardType === OFFER_CARD_TYPE.FAVORITE;
+
+  const getCardClass = (classIndex, classRelated, classFavorite) => {
+    switch (currentCardType) {
+      case OFFER_CARD_TYPE.INDEX:
+        return classIndex;
+      case OFFER_CARD_TYPE.RELATED:
+        return classRelated;
+      case OFFER_CARD_TYPE.FAVORITE:
+        return classFavorite;
+      default:
+        return false;
+    }
+  };
 
   return (
-    <article className="cities__place-card place-card">
+    <article className={`${getCardClass(`cities__place-card`, `near-places__card`, `favorites__card`)} place-card`}>
       {isPremium && (
         <div className="place-card__mark">
           <span>Premium</span>
         </div>)}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${getCardClass(`cities__image-wrapper`, `near-places__image-wrapper`, `favorites__image-wrapper`)} place-card__image-wrapper`}>
         <Link to={`/offer/${id}`}>
-          <img className="place-card__image" src={`img/${pictures[0]}`} width="260" height="200" alt="Place image" />
+          <img className="place-card__image"
+            src={`img/${isFavoriteType ? preview : pictures[0]}`}
+            width={isFavoriteType ? `150` : `260`}
+            height={isFavoriteType ? `110` : `200`}
+            alt="Place image"/>
         </Link>
       </div>
-      <div className="place-card__info">
+      <div className={`${getCardClass(``, ``, `favorites__card-info`)} place-card__info`}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{price}</b>
@@ -49,6 +69,7 @@ const OfferCard = (props) => {
 
 OfferCard.propTypes = {
   offer: offerPropType,
+  currentCardType: PropTypes.string.isRequired,
 };
 
 export default OfferCard;

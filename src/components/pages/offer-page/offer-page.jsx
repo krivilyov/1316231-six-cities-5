@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {offerPropType, reviewPropType} from "../../../prop-types";
 import OfferCard from "../../offer-card/offer-card";
 import OfferCommentForm from "../../offer-comment-form/offer-comment-form";
+import {OFFER_CARD_TYPE} from "../../../const";
 
 const OfferPage = (props) => {
   const {offer, reviews, relatedOffers} = props;
@@ -151,6 +152,7 @@ const OfferPage = (props) => {
                 <OfferCard
                   key={item.id}
                   offer={item}
+                  currentCardType={OFFER_CARD_TYPE.RELATED}
                 />
               ))}
             </div>

@@ -11,6 +11,7 @@ import PageNotFound from "../pages/page-not-found/page-not-found";
 
 const App = (props) => {
   const {offersQuantity, offers, reviews} = props;
+  const bookMarkOffers = offers.filter((it) => it.isBookMark);
 
   const getRelatedOffers = (id) => {
     return offers.filter((item) => (item.id !== (id * 1))).slice(0, 3);
@@ -29,7 +30,9 @@ const App = (props) => {
           <LoginPage />
         </Route>
         <Route exact path="/favorites">
-          <FavoritesPage />
+          <FavoritesPage
+            bookMarkOffers={bookMarkOffers}
+          />
         </Route>
         <Route exact path="/offer/:id"
           render={({match}) => (

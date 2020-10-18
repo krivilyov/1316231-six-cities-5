@@ -5,7 +5,7 @@ import {offerPropType} from "../../prop-types";
 import OfferCard from "../offer-card/offer-card";
 
 const OffersList = (props) => {
-  const {offers} = props;
+  const {offers, currentCardType} = props;
 
   return (
     <div className="cities__places-list places__list tabs__content">
@@ -13,6 +13,7 @@ const OffersList = (props) => {
         <OfferCard
           key={offer.id}
           offer={offer}
+          currentCardType={currentCardType}
         />
       ))}
     </div>
@@ -21,6 +22,7 @@ const OffersList = (props) => {
 
 OffersList.propTypes = {
   offers: PropTypes.arrayOf(offerPropType).isRequired,
+  currentCardType: PropTypes.string.isRequired,
 };
 
 export default OffersList;
