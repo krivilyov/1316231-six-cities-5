@@ -12,9 +12,8 @@ import PageNotFound from "../pages/page-not-found/page-not-found";
 const App = (props) => {
   const {offersQuantity, offers, reviews} = props;
 
-  const getOffer = (pathname) => {
-    const id = +pathname.replace(`/offer/`, ``);
-    return offers.find((item) => item.id === id);
+  const getRelatedOffers = (id) => {
+    return offers.filter((item) => (item.id !== (id * 1))).slice(0, 3);
   };
 
   return (
@@ -32,16 +31,15 @@ const App = (props) => {
         <Route exact path="/favorites">
           <FavoritesPage />
         </Route>
-        <Route exact path="/offer/:id">
-          <OfferPage
-            render={({history}) => (
-              <OfferPage
-                offer={getOffer(history.location.pathname)}
-                reviews={reviews}
-              />
-            )}
-          />
-        </Route>
+        <Route exact path="/offer/:id"
+          render={({match}) => (
+            <OfferPage
+              offer={offers.find((item) => item.id === (match.params.id * 1))}
+              relatedOffers={getRelatedOffers(match.params.id)}
+              reviews={reviews}
+            />
+          )}
+        />
         <Route>
           <PageNotFound />
         </Route>

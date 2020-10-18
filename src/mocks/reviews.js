@@ -4,7 +4,7 @@ const reviews = [
     reviewDate: `March 2020`,
     reviewRating: 4,
     userInfo: {
-      userAvatar: `img/avatar-max.jpg`,
+      userAvatar: `avatar-max.jpg`,
       userName: `Kolin`
     },
     reviewText: `Beautiful apartment, new renovation, perfect cleanliness. Everything is thought out to every detail.
@@ -16,7 +16,7 @@ const reviews = [
     reviewDate: `April 2020`,
     reviewRating: 2,
     userInfo: {
-      userAvatar: `img/avatar-angelina.jpg`,
+      userAvatar: `avatar-angelina.jpg`,
       userName: `Masha`
     },
     reviewText: `The stuffiness is terrible ! Conditioner only works on heating.`
@@ -26,7 +26,7 @@ const reviews = [
     reviewDate: `April 2020`,
     reviewRating: 3,
     userInfo: {
-      userAvatar: `img/avatar-angelina.jpg`,
+      userAvatar: `avatar-angelina.jpg`,
       userName: `Elza`
     },
     reviewText: `Thank you administrator! I woke you up right on time. Very attentive and responsible!`
@@ -34,9 +34,9 @@ const reviews = [
   {
     reviewId: 104,
     reviewDate: `May 2020`,
-    reviewRating: 4,
+    reviewRating: 5,
     userInfo: {
-      userAvatar: `img/avatar-max.jpg`,
+      userAvatar: `avatar-max.jpg`,
       userName: `John`
     },
     reviewText: `A few years ago, Breakfast was more varied and delicious.`
