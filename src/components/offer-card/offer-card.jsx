@@ -9,23 +9,23 @@ const OfferCard = (props) => {
   const {id, isPremium, pictures, preview, price, isBookMark, rating, title, type} = offer;
   const isFavoriteType = currentCardType === OFFER_CARD_TYPE.FAVORITE;
 
-  const getCardClass = (classIndex, classRelated, classFavorite) => {
-    switch (currentCardType) {
-      case OFFER_CARD_TYPE.INDEX:
-        return classIndex;
-      case OFFER_CARD_TYPE.RELATED:
-        return classRelated;
-      case OFFER_CARD_TYPE.FAVORITE:
-        return classFavorite;
-      default:
-        return false;
-    }
+  const getCardClass = {
+    index: `cities__place-card`,
+    related: `near-places__card`,
+    favorite: `favorites__card`
   };
 
+  const getWrapperClass = {
+    index: `cities__image-wrapper`,
+    related: `near-places__image-wrapper`,
+    favorite: `favorites__image-wrapper`
+  };
+
+  const checkIsFavorite = () => isFavoriteType ? `favorites__card-info` : ``;
+
   return (
-    <article className={`${getCardClass(`cities__place-card`, `near-places__card`, `favorites__card`)} place-card`}
-      onMouseOver={(evt) => {
-        evt.preventDefault();
+    <article className={`${getCardClass[currentCardType]} place-card`}
+      onMouseOver={() => {
         if (currentOffer !== offer) {
           onMouseOverOffer(offer);
         }
@@ -34,7 +34,7 @@ const OfferCard = (props) => {
         <div className="place-card__mark">
           <span>Premium</span>
         </div>)}
-      <div className={`${getCardClass(`cities__image-wrapper`, `near-places__image-wrapper`, `favorites__image-wrapper`)} place-card__image-wrapper`}>
+      <div className={`${getWrapperClass[currentCardType]} place-card__image-wrapper`}>
         <Link to={`/offer/${id}`}>
           <img className="place-card__image"
             src={`img/${isFavoriteType ? preview : pictures[0]}`}
@@ -43,7 +43,7 @@ const OfferCard = (props) => {
             alt="Place image"/>
         </Link>
       </div>
-      <div className={`${getCardClass(``, ``, `favorites__card-info`)} place-card__info`}>
+      <div className={`place-card__info ${checkIsFavorite()}`}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{price}</b>

@@ -7,29 +7,31 @@ class OffersList extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      overOffer: this.props.offers[0],
+      mouseOverOffer: this.props.offers[0],
     };
+
+    this.onMouseOverOffer = this.onMouseOverOffer.bind(this);
+  }
+
+  onMouseOverOffer(newMouseOverOffer) {
+    this.setState(() => ({
+      mouseOverOffer: newMouseOverOffer,
+    }));
   }
 
   render() {
     const {offers, currentCardType} = this.props;
 
     return (
-      <div className="cities__places-list places__list tabs__content">
-        {offers.map((offer) => (
-          <OfferCard
-            key={offer.id}
-            offer={offer}
-            currentCardType={currentCardType}
-            currentOffer={this.state.overOffer}
-            onMouseOverOffer={(newOverOffer) => {
-              this.setState(() => ({
-                overOffer: newOverOffer,
-              }));
-            }}
-          />
-        ))}
-      </div>
+      offers.map((offer) => (
+        <OfferCard
+          key={offer.id}
+          offer={offer}
+          currentCardType={currentCardType}
+          currentOffer={this.state.mouseOverOffer}
+          onMouseOverOffer={this.onMouseOverOffer}
+        />
+      ))
     );
   }
 }

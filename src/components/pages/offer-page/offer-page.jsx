@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {offerPropType, reviewPropType} from "../../../prop-types";
-import OfferCard from "../../offer-card/offer-card";
 import OfferCommentForm from "../../offer-comment-form/offer-comment-form";
 import {OFFER_CARD_TYPE} from "../../../const";
+import OffersList from "../../offers-list/offers-list";
 
 const OfferPage = (props) => {
   const {offer, reviews, relatedOffers} = props;
@@ -148,13 +148,10 @@ const OfferPage = (props) => {
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
-              {relatedOffers.map((item) => (
-                <OfferCard
-                  key={item.id}
-                  offer={item}
-                  currentCardType={OFFER_CARD_TYPE.RELATED}
-                />
-              ))}
+              <OffersList
+                offers={relatedOffers}
+                currentCardType={OFFER_CARD_TYPE.RELATED}
+              />
             </div>
           </section>
         </div>

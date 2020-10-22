@@ -14,7 +14,7 @@ const App = (props) => {
   const bookMarkOffers = offers.filter((it) => it.isBookMark);
 
   const getRelatedOffers = (id) => {
-    return offers.filter((item) => (item.id !== (id * 1))).slice(0, 3);
+    return offers.filter((item) => (item.id !== +id)).slice(0, 3);
   };
 
   return (
@@ -37,7 +37,7 @@ const App = (props) => {
         <Route exact path="/offer/:id"
           render={({match}) => (
             <OfferPage
-              offer={offers.find((item) => item.id === (match.params.id * 1))}
+              offer={offers.find((item) => item.id === +match.params.id)}
               relatedOffers={getRelatedOffers(match.params.id)}
               reviews={reviews}
             />

@@ -91,10 +91,12 @@ const IndexPage = (props) => {
                 </ul>
               </form>
 
-              <OffersList
-                offers={offers}
-                currentCardType={OFFER_CARD_TYPE.INDEX}
-              />
+              <div className="cities__places-list places__list tabs__content">
+                <OffersList
+                  offers={offers}
+                  currentCardType={OFFER_CARD_TYPE.INDEX}
+                />
+              </div>
 
             </section>
             <div className="cities__right-section">
