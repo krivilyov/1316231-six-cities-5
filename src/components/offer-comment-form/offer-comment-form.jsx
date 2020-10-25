@@ -29,12 +29,12 @@ class OfferCommentForm extends PureComponent {
       >
         <label className="reviews__label form__label" htmlFor="review">Your review</label>
         <div className="reviews__rating-form form__rating">
-          {RadioValues.map((it) => (
-            <React.Fragment key={it}>
-              <input className="form__rating-input visually-hidden" name="rating" value={it} id={`${it}-stars`}
-                onChange={this.handleFieldChange} type="radio" checked={rating === it}
+          {RadioValues.map((value) => (
+            <React.Fragment key={value}>
+              <input className="form__rating-input visually-hidden" name="rating" value={value} id={`${value}-stars`}
+                onChange={this.handleFieldChange} type="radio" checked={rating === value}
               />
-              <label htmlFor={`${it}-stars`} className="reviews__rating-label form__rating-label" title="perfect">
+              <label htmlFor={`${value}-stars`} className="reviews__rating-label form__rating-label" title="perfect">
                 <svg className="form__star-image" width="37" height="33">
                   <use xlinkHref="#icon-star"/>
                 </svg>

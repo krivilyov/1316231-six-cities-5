@@ -7,7 +7,7 @@ const offerPropType = PropTypes.shape({
   pictures: PropTypes.array.isRequired,
   preview: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  description: PropTypes.array.isRequired,
+  description: PropTypes.string.isRequired,
   isPremium: PropTypes.bool.isRequired,
   isBookMark: PropTypes.bool.isRequired,
   price: PropTypes.number.isRequired,

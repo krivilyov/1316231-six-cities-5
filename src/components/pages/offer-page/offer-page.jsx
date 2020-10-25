@@ -38,9 +38,9 @@ const OfferPage = (props) => {
         <section className="property">
           <div className="property__gallery-container container">
             <div className="property__gallery">
-              {pictures.slice(0, 6).map((it, i) => (
-                <div key={`${it}_${i}`} className="property__image-wrapper">
-                  <img className="property__image" src={`img/${it}`} alt="Photo studio" />
+              {pictures.slice(0, 6).map((picture, i) => (
+                <div key={`${picture}_${i}`} className="property__image-wrapper">
+                  <img className="property__image" src={`img/${picture}`} alt="Photo studio" />
                 </div>
               ))}
             </div>
@@ -85,9 +85,9 @@ const OfferPage = (props) => {
               <div className="property__inside">
                 <h2 className="property__inside-title">What&apos;s inside</h2>
                 <ul className="property__inside-list">
-                  {amenities.slice().map((it, i) => (
-                    <li key={`${it}_${i}`} className="property__inside-item">
-                      {it}
+                  {amenities.slice().map((amenity, i) => (
+                    <li key={`${amenity}_${i}`} className="property__inside-item">
+                      {amenity}
                     </li>
                   ))}
                 </ul>
@@ -103,35 +103,33 @@ const OfferPage = (props) => {
                   </span>
                 </div>
                 <div className="property__description">
-                  {description.map((item, i) => (
-                    <p key={`${item}_${i}`} className="property__text">{item}</p>
-                  ))}
+                  {description}
                 </div>
               </div>
               <section className="property__reviews reviews">
                 <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
                 <ul className="reviews__list">
-                  {reviews.map((item, i) => (
-                    <li key={`${item.id}_${i}`} className="reviews__item">
+                  {reviews.map((review, i) => (
+                    <li key={`${review.id}_${i}`} className="reviews__item">
                       <div className="reviews__user user">
                         <div className="reviews__avatar-wrapper user__avatar-wrapper">
-                          <img className="reviews__avatar user__avatar" src={`img/${item.userInfo.userAvatar}`} width="54" height="54" alt="Reviews avatar" />
+                          <img className="reviews__avatar user__avatar" src={`img/${review.userInfo.userAvatar}`} width="54" height="54" alt="Reviews avatar" />
                         </div>
                         <span className="reviews__user-name">
-                          {item.userInfo.userName}
+                          {review.userInfo.userName}
                         </span>
                       </div>
                       <div className="reviews__info">
                         <div className="reviews__rating rating">
                           <div className="reviews__stars rating__stars">
-                            <span style={{width: `${item.reviewRating * 20}%`}}></span>
+                            <span style={{width: `${review.reviewRating * 20}%`}}></span>
                             <span className="visually-hidden">Rating</span>
                           </div>
                         </div>
                         <p className="reviews__text">
-                          {item.reviewText}
+                          {review.reviewText}
                         </p>
-                        <time className="reviews__time" dateTime="2019-04-24">{item.reviewDate}</time>
+                        <time className="reviews__time" dateTime="2019-04-24">{review.reviewDate}</time>
                       </div>
                     </li>
                   ))}
