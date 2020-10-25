@@ -1,4 +1,4 @@
-import {OFFER_TYPE} from "../const";
+import {OfferTypes} from "../const";
 
 const offers = [
   {
@@ -14,7 +14,7 @@ const offers = [
     isPremium: true,
     isBookMark: true,
     price: 120,
-    type: OFFER_TYPE.HOTEL,
+    type: OfferTypes.HOTEL,
     rating: 4,
     bedroomsMax: `4 Bedrooms`,
     guestsMax: `Max 5 adults`,
@@ -38,7 +38,7 @@ const offers = [
     isPremium: true,
     isBookMark: false,
     price: 220,
-    type: OFFER_TYPE.HOTEL,
+    type: OfferTypes.HOTEL,
     rating: 5,
     bedroomsMax: `3 Bedrooms`,
     guestsMax: `Max 6 adults`,
@@ -62,7 +62,7 @@ const offers = [
     isPremium: false,
     isBookMark: true,
     price: 90,
-    type: OFFER_TYPE.APARTMENT,
+    type: OfferTypes.APARTMENT,
     rating: 3,
     bedroomsMax: `5 Bedrooms`,
     guestsMax: `Max 8 adults`,
@@ -86,7 +86,7 @@ const offers = [
     isPremium: true,
     isBookMark: true,
     price: 90,
-    type: OFFER_TYPE.HOUSE,
+    type: OfferTypes.HOUSE,
     rating: 4,
     bedroomsMax: `1 Bedrooms`,
     guestsMax: `Max 2 adults`,

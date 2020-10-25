@@ -2,7 +2,7 @@ import React, {PureComponent} from "react";
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 import {offerPropType} from "../../../prop-types";
-import {OFFER_CARD_TYPE} from "../../../const";
+import {OfferCardTypes} from "../../../const";
 import OffersList from "../../offers-list/offers-list";
 
 class FavoritesPage extends PureComponent {
@@ -31,7 +31,7 @@ class FavoritesPage extends PureComponent {
           <div className="favorites__places">
             <OffersList
               offers={this.getBookMarkOffersCityMap(bookMarkOffers)[city]}
-              currentCardType={OFFER_CARD_TYPE.FAVORITE}
+              currentCardType={OfferCardTypes.FAVORITE}
             />
           </div>
         </li>

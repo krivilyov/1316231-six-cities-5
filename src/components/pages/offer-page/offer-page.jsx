@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {offerPropType, reviewPropType} from "../../../prop-types";
 import OfferCommentForm from "../../offer-comment-form/offer-comment-form";
-import {OFFER_CARD_TYPE} from "../../../const";
+import {OfferCardTypes} from "../../../const";
 import OffersList from "../../offers-list/offers-list";
 
 const OfferPage = (props) => {
@@ -150,7 +150,7 @@ const OfferPage = (props) => {
             <div className="near-places__list places__list">
               <OffersList
                 offers={relatedOffers}
-                currentCardType={OFFER_CARD_TYPE.RELATED}
+                currentCardType={OfferCardTypes.RELATED}
               />
             </div>
           </section>

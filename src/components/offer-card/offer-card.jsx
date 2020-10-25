@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {offerPropType} from "../../prop-types";
-import {OFFER_CARD_TYPE} from "../../const";
+import {OfferCardTypes} from "../../const";
 
 const OfferCard = (props) => {
   const {offer, currentCardType, onMouseOverOffer, currentOffer} = props;
   const {id, isPremium, pictures, preview, price, isBookMark, rating, title, type} = offer;
-  const isFavoriteType = currentCardType === OFFER_CARD_TYPE.FAVORITE;
+  const isFavoriteType = currentCardType === OfferCardTypes.FAVORITE;
 
   const getCardClass = {
     index: `cities__place-card`,

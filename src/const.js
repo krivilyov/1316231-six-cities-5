@@ -1,14 +1,14 @@
-export const OFFER_TYPE = {
+export const OfferTypes = {
   APARTMENT: `Apartment`,
   ROOM: `Room`,
   HOUSE: `House`,
   HOTEL: `Hotel`
 };
 
-export const OFFER_CARD_TYPE = {
+export const OfferCardTypes = {
   INDEX: `index`,
   RELATED: `related`,
   FAVORITE: `favorite`,
 };
 
-export const RADIO_VALUES = [`5`, `4`, `3`, `2`, `1`];
+export const RadioValues = [`5`, `4`, `3`, `2`, `1`];

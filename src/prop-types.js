@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import {OFFER_TYPE} from "./const";
+import {OfferTypes} from "./const";
 
 const offerPropType = PropTypes.shape({
   id: PropTypes.number.isRequired,
@@ -11,7 +11,7 @@ const offerPropType = PropTypes.shape({
   isPremium: PropTypes.bool.isRequired,
   isBookMark: PropTypes.bool.isRequired,
   price: PropTypes.number.isRequired,
-  type: PropTypes.oneOf([OFFER_TYPE.APARTMENT, OFFER_TYPE.ROOM, OFFER_TYPE.HOUSE, OFFER_TYPE.HOTEL]).isRequired,
+  type: PropTypes.oneOf([OfferTypes.APARTMENT, OfferTypes.ROOM, OfferTypes.HOUSE, OfferTypes.HOTEL]).isRequired,
   rating: PropTypes.number.isRequired,
   bedroomsMax: PropTypes.string.isRequired,
   guestsMax: PropTypes.string.isRequired,

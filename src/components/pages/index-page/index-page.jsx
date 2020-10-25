@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import OffersList from "../../offers-list/offers-list";
 import {offerPropType} from "../../../prop-types";
-import {OFFER_CARD_TYPE} from "../../../const";
+import {OfferCardTypes} from "../../../const";
 
 const IndexPage = (props) => {
   const {offersQuantity, offers} = props;
@@ -94,7 +94,7 @@ const IndexPage = (props) => {
               <div className="cities__places-list places__list tabs__content">
                 <OffersList
                   offers={offers}
-                  currentCardType={OFFER_CARD_TYPE.INDEX}
+                  currentCardType={OfferCardTypes.INDEX}
                 />
               </div>
 

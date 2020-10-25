@@ -1,5 +1,5 @@
 import React, {PureComponent} from "react";
-import {RADIO_VALUES} from "../../const";
+import {RadioValues} from "../../const";
 
 class OfferCommentForm extends PureComponent {
   constructor(props) {
@@ -29,7 +29,7 @@ class OfferCommentForm extends PureComponent {
       >
         <label className="reviews__label form__label" htmlFor="review">Your review</label>
         <div className="reviews__rating-form form__rating">
-          {RADIO_VALUES.map((it) => (
+          {RadioValues.map((it) => (
             <React.Fragment key={it}>
               <input className="form__rating-input visually-hidden" name="rating" value={it} id={`${it}-stars`}
                 onChange={this.handleFieldChange} type="radio" checked={rating === it}
