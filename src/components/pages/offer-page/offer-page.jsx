@@ -38,8 +38,8 @@ const OfferPage = (props) => {
         <section className="property">
           <div className="property__gallery-container container">
             <div className="property__gallery">
-              {pictures.slice(0, 6).map((picture, i) => (
-                <div key={`${picture}_${i}`} className="property__image-wrapper">
+              {pictures.slice(0, 6).map((picture) => (
+                <div key={picture} className="property__image-wrapper">
                   <img className="property__image" src={`img/${picture}`} alt="Photo studio" />
                 </div>
               ))}
@@ -85,8 +85,8 @@ const OfferPage = (props) => {
               <div className="property__inside">
                 <h2 className="property__inside-title">What&apos;s inside</h2>
                 <ul className="property__inside-list">
-                  {amenities.slice().map((amenity, i) => (
-                    <li key={`${amenity}_${i}`} className="property__inside-item">
+                  {amenities.slice().map((amenity) => (
+                    <li key={amenity} className="property__inside-item">
                       {amenity}
                     </li>
                   ))}
@@ -109,8 +109,8 @@ const OfferPage = (props) => {
               <section className="property__reviews reviews">
                 <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
                 <ul className="reviews__list">
-                  {reviews.map((review, i) => (
-                    <li key={`${review.id}_${i}`} className="reviews__item">
+                  {reviews.map((review) => (
+                    <li key={review.id} className="reviews__item">
                       <div className="reviews__user user">
                         <div className="reviews__avatar-wrapper user__avatar-wrapper">
                           <img className="reviews__avatar user__avatar" src={`img/${review.userInfo.userAvatar}`} width="54" height="54" alt="Reviews avatar" />
