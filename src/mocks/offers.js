@@ -20,7 +20,8 @@ const offers = [
       avatar: `avatar-angelina.jpg`,
       name: `Ross`,
       isSuper: true,
-    }
+    },
+    coordinates: [52.3909553943508, 4.85309666406198],
   },
   {
     id: 2,
@@ -41,7 +42,8 @@ const offers = [
       avatar: `avatar-max.jpg`,
       name: `Max`,
       isSuper: false,
-    }
+    },
+    coordinates: [52.369553943508, 4.85309666406198],
   },
   {
     id: 3,
@@ -62,7 +64,8 @@ const offers = [
       avatar: `avatar-angelina.jpg`,
       name: `Angelina`,
       isSuper: true,
-    }
+    },
+    coordinates: [52.3909553943508, 4.929309666406198],
   },
   {
     id: 4,
@@ -83,7 +86,8 @@ const offers = [
       avatar: `avatar-max.jpg`,
       name: `Andy`,
       isSuper: false,
-    }
+    },
+    coordinates: [52.3809553943508, 4.939309666406198],
   },
 ];
 

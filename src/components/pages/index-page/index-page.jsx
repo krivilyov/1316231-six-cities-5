@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import OffersList from "../../offers-list/offers-list";
 import {offerPropType} from "../../../prop-types";
-import {OfferCardTypes} from "../../../const";
+import {OfferCardTypes, Cities} from "../../../const";
+import Map from "../../map/map";
 
 const IndexPage = (props) => {
-  const {offersQuantity, offers} = props;
+  const {offers, activeCity} = props;
+  const offersQuantity = offers.length;
 
   return (
     <div className="page page--gray page--main">
@@ -100,7 +102,12 @@ const IndexPage = (props) => {
 
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map">
+                <Map
+                  activeCity={activeCity}
+                  offers={offers}
+                />
+              </section>
             </div>
           </div>
         </div>
@@ -110,8 +117,8 @@ const IndexPage = (props) => {
 };
 
 IndexPage.propTypes = {
-  offersQuantity: PropTypes.number.isRequired,
-  offers: PropTypes.arrayOf(offerPropType).isRequired
+  offers: PropTypes.arrayOf(offerPropType).isRequired,
+  activeCity: PropTypes.oneOf(Cities).isRequired,
 };
 
 export default IndexPage;
