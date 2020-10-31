@@ -4,7 +4,7 @@ const offers = [
   {
     id: 1,
     city: `Amsterdam`,
-    pictures: [`room.jpg`, `apartment-01.jpg`, `apartment-02.jpg`, `apartment-03.jpg`, `studio-01.jpg`, `apartment-01.jpg`],
+    pictures: [`room.jpg`, `apartment-02.jpg`, `apartment-03.jpg`, `studio-01.jpg`, `apartment-01.jpg`],
     preview: `apartment-small-04.jpg`,
     title: `Monet Garden Hotel Amsterdam`,
     description: `Monet Garden Amsterdam is a modern boutique hotel located in Amsterdam, next to the city's canals. It offers air-conditioned rooms and free Wi-Fi throughout. Most rooms offer views of the canal and garden.`,
@@ -20,12 +20,13 @@ const offers = [
       avatar: `avatar-angelina.jpg`,
       name: `Ross`,
       isSuper: true,
-    }
+    },
+    coordinates: [52.3909553943508, 4.85309666406198],
   },
   {
     id: 2,
     city: `Amsterdam`,
-    pictures: [`room.jpg`, `apartment-03.jpg`, `apartment-01.jpg`, `apartment-02.jpg`, `studio-01.jpg`, `apartment-02.jpg`],
+    pictures: [`room.jpg`, `apartment-03.jpg`, `apartment-01.jpg`, `studio-01.jpg`, `apartment-02.jpg`],
     preview: `apartment-small-03.jpg`,
     title: `Guest house Dynasty Sochi`,
     description: `Dynasty guest house is located in Sochi, a 10-minute walk from the Black sea. It offers free Wi-Fi and free private Parking.`,
@@ -41,12 +42,13 @@ const offers = [
       avatar: `avatar-max.jpg`,
       name: `Max`,
       isSuper: false,
-    }
+    },
+    coordinates: [52.369553943508, 4.85309666406198],
   },
   {
     id: 3,
     city: `Amsterdam`,
-    pictures: [`apartment-03.jpg`, `room.jpg`, `apartment-01.jpg`, `apartment-02.jpg`, `studio-01.jpg`, `apartment-03.jpg`],
+    pictures: [`apartment-03.jpg`, `room.jpg`, `apartment-01.jpg`, `apartment-02.jpg`, `studio-01.jpg`],
     preview: `apartment-small-04.jpg`,
     title: `The Hoxton`,
     description: `The rooms are equipped with a flat-screen TV with cable channels. Some rooms have a Seating area. The rooms are equipped with kettle, free toiletries and a Hairdryer. A TV is provided.`,
@@ -62,12 +64,13 @@ const offers = [
       avatar: `avatar-angelina.jpg`,
       name: `Angelina`,
       isSuper: true,
-    }
+    },
+    coordinates: [52.3909553943508, 4.929309666406198],
   },
   {
     id: 4,
     city: `Amsterdam`,
-    pictures: [`apartment-02.jpg`, `apartment-03.jpg`, `room.jpg`, `apartment-01.jpg`, `apartment-03.jpg`, `studio-01.jpg`],
+    pictures: [`apartment-02.jpg`, `apartment-03.jpg`, `room.jpg`, `apartment-01.jpg`, `studio-01.jpg`],
     preview: `apartment-small-03.jpg`,
     title: `Caesars Studion`,
     description: `Caesars Place apartment is located in Amsterdam, 400 metres from Leidseplein and 500 metres from Flower market. Free Wi-Fi is available throughout the property.`,
@@ -83,7 +86,8 @@ const offers = [
       avatar: `avatar-max.jpg`,
       name: `Andy`,
       isSuper: false,
-    }
+    },
+    coordinates: [52.3809553943508, 4.939309666406198],
   },
 ];
 

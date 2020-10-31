@@ -12,3 +12,12 @@ export const OfferCardTypes = {
 };
 
 export const RadioValues = [`5`, `4`, `3`, `2`, `1`];
+
+export const Cities = [
+  `AMSTERDAM`,
+  `PARIS`,
+  `COLOGNE`,
+  `BRUSSELS`,
+  `HAMBURG`,
+  `DUSSELDORF`
+];
