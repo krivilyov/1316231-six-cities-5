@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {offerPropType, reviewPropType} from "../../prop-types";
+import {Cities} from "../../const";
 
 import IndexPage from "../pages/index-page/index-page";
 import LoginPage from "../pages/login-page/login-page";
@@ -10,8 +11,9 @@ import OfferPage from "../pages/offer-page/offer-page";
 import PageNotFound from "../pages/page-not-found/page-not-found";
 
 const App = (props) => {
-  const {offersQuantity, offers, reviews} = props;
+  const {offers, reviews} = props;
   const bookMarkOffers = offers.filter((it) => it.isBookMark);
+  const activeCity = Cities[0];
 
   const getRelatedOffers = (id) => {
     return offers.filter((item) => (item.id !== +id)).slice(0, 3);
@@ -22,8 +24,8 @@ const App = (props) => {
       <Switch>
         <Route exact path="/">
           <IndexPage
-            offersQuantity={offersQuantity}
             offers={offers}
+            activeCity={activeCity}
           />
         </Route>
         <Route exact path="/login">
@@ -52,7 +54,6 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  offersQuantity: PropTypes.number.isRequired,
   offers: PropTypes.arrayOf(offerPropType).isRequired,
   reviews: PropTypes.arrayOf(reviewPropType).isRequired,
 };
