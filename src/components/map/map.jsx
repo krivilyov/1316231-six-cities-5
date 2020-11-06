@@ -3,15 +3,14 @@ import leaflet from "leaflet";
 import "leaflet/dist/leaflet.css";
 import PropTypes from "prop-types";
 import {offerPropType} from "../../prop-types";
-import {Cities} from "../../const";
+import {Cities, CityCoordinates} from "../../const";
+import {connect} from "react-redux";
 
 class Map extends PureComponent {
   constructor(props) {
     super(props);
 
     this.map = null;
-    this.activeCity = this.props.activeCity;
-    this.activeCityCenter = [52.38333, 4.9];
     this.zoom = 12;
     this.icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
@@ -32,8 +31,10 @@ class Map extends PureComponent {
   }
 
   componentDidMount() {
+    const cityCoordinates = CityCoordinates[this.props.activeCity];
+
     this.map = leaflet.map(`map`, {
-      center: this.activeCityCenter,
+      center: cityCoordinates,
       zoom: this.zoom,
       zoomControl: false,
       marker: true
@@ -47,7 +48,11 @@ class Map extends PureComponent {
 
     this.addMarkers();
 
-    this.map.setView(this.activeCityCenter, this.zoom);
+    this.map.setView(cityCoordinates, this.zoom);
+  }
+
+  componentWillUnmount() {
+    this.map = null;
   }
 
   render() {
@@ -62,4 +67,10 @@ Map.propTypes = {
   activeCity: PropTypes.oneOf(Cities).isRequired,
 };
 
-export default Map;
+const mapStateToProps = (state) => ({
+  offers: state.offers,
+  activeCity: state.activeCity
+});
+
+export {Map};
+export default connect(mapStateToProps)(Map);
