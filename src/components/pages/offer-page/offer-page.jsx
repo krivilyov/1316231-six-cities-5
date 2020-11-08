@@ -128,6 +128,7 @@ const OfferPage = (props) => {
               <OffersList
                 offers={relatedOffers}
                 currentCardType={OfferCardTypes.RELATED}
+                offerId={offer.id}
               />
             </div>
           </section>

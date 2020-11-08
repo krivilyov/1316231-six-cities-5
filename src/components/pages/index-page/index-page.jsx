@@ -6,7 +6,7 @@ import {OfferCardTypes, Cities} from "../../../const";
 import Map from "../../map/map";
 import Tabs from "../../tabs/tabs";
 import {connect} from "react-redux";
-import {changeCityAction, setSortingTypeAction} from "../../../store/action";
+import {ActionCreator} from "../../../store/action";
 import OffersSorting from "../../offers-sorting/offers-sorting";
 import {getSortedOffers} from "../../../store/selectors";
 
@@ -89,8 +89,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeCity: (city) => dispatch(changeCityAction(city)),
-  onOptionClick: (type) => dispatch(setSortingTypeAction(type)),
+  changeCity: (city) => dispatch(ActionCreator.changeCityAction(city)),
+  onOptionClick: (type) => dispatch(ActionCreator.setSortingTypeAction(type)),
+  onMouseOverOffer: (offer) => dispatch(ActionCreator.onMouseOverOffer(offer))
 });
 
 export {IndexPage};
