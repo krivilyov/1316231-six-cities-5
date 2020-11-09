@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from "react-redux";
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {offerPropType, reviewPropType} from "../../prop-types";
 import {Cities} from "../../const";
+
 
 import IndexPage from "../pages/index-page/index-page";
 import LoginPage from "../pages/login-page/login-page";
@@ -58,4 +60,10 @@ App.propTypes = {
   reviews: PropTypes.arrayOf(reviewPropType).isRequired,
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  offers: state.offers,
+  reviews: state.reviews,
+});
+
+export {App};
+export default connect(mapStateToProps)(App);

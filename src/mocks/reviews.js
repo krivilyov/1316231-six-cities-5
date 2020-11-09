@@ -43,4 +43,4 @@ const reviews = [
   },
 ];
 
-export default reviews;
+export {reviews};
