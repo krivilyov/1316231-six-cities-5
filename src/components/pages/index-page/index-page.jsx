@@ -4,9 +4,12 @@ import OffersList from "../../offers-list/offers-list";
 import {offerPropType} from "../../../prop-types";
 import {OfferCardTypes, Cities} from "../../../const";
 import Map from "../../map/map";
+import Tabs from "../../tabs/tabs";
+import {connect} from "react-redux";
+import {actionCreator} from "../../../store/action";
 
 const IndexPage = (props) => {
-  const {offers, activeCity} = props;
+  const {offers, activeCity, changeCity} = props;
   const offersQuantity = offers.length;
 
   return (
@@ -36,42 +39,9 @@ const IndexPage = (props) => {
 
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
-        <div className="tabs">
-          <section className="locations container">
-            <ul className="locations__list tabs__list">
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Paris</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Cologne</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Brussels</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item tabs__item--active">
-                  <span>Amsterdam</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Hamburg</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Dusseldorf</span>
-                </a>
-              </li>
-            </ul>
-          </section>
-        </div>
+
+        <Tabs activeCity={activeCity} onTabClick={changeCity} />
+
         <div className="cities">
           <div className="cities__places-container container">
             <section className="cities__places places">
@@ -104,8 +74,7 @@ const IndexPage = (props) => {
             <div className="cities__right-section">
               <section className="cities__map map">
                 <Map
-                  activeCity={activeCity}
-                  offers={offers}
+                  key={activeCity}
                 />
               </section>
             </div>
@@ -119,6 +88,19 @@ const IndexPage = (props) => {
 IndexPage.propTypes = {
   offers: PropTypes.arrayOf(offerPropType).isRequired,
   activeCity: PropTypes.oneOf(Cities).isRequired,
+  changeCity: PropTypes.func.isRequired,
 };
 
-export default IndexPage;
+const mapStateToProps = (state) => ({
+  offers: state.offers.filter((offer) => offer.city === state.activeCity),
+  activeCity: state.activeCity,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  changeCity: (city) => {
+    dispatch(actionCreator.changeCity(city));
+  }
+});
+
+export {IndexPage};
+export default connect(mapStateToProps, mapDispatchToProps)(IndexPage);

@@ -3,7 +3,7 @@ import {OfferTypes} from "../const";
 const offers = [
   {
     id: 1,
-    city: `Amsterdam`,
+    city: `AMSTERDAM`,
     pictures: [`room.jpg`, `apartment-02.jpg`, `apartment-03.jpg`, `studio-01.jpg`, `apartment-01.jpg`],
     preview: `apartment-small-04.jpg`,
     title: `Monet Garden Hotel Amsterdam`,
@@ -25,7 +25,7 @@ const offers = [
   },
   {
     id: 2,
-    city: `Amsterdam`,
+    city: `AMSTERDAM`,
     pictures: [`room.jpg`, `apartment-03.jpg`, `apartment-01.jpg`, `studio-01.jpg`, `apartment-02.jpg`],
     preview: `apartment-small-03.jpg`,
     title: `Guest house Dynasty Sochi`,
@@ -47,7 +47,7 @@ const offers = [
   },
   {
     id: 3,
-    city: `Amsterdam`,
+    city: `AMSTERDAM`,
     pictures: [`apartment-03.jpg`, `room.jpg`, `apartment-01.jpg`, `apartment-02.jpg`, `studio-01.jpg`],
     preview: `apartment-small-04.jpg`,
     title: `The Hoxton`,
@@ -69,7 +69,7 @@ const offers = [
   },
   {
     id: 4,
-    city: `Amsterdam`,
+    city: `AMSTERDAM`,
     pictures: [`apartment-02.jpg`, `apartment-03.jpg`, `room.jpg`, `apartment-01.jpg`, `studio-01.jpg`],
     preview: `apartment-small-03.jpg`,
     title: `Caesars Studion`,
@@ -89,6 +89,29 @@ const offers = [
     },
     coordinates: [52.3809553943508, 4.939309666406198],
   },
+
+  {
+    id: 5,
+    city: `PARIS`,
+    pictures: [`apartment-02.jpg`, `apartment-03.jpg`, `room.jpg`, `apartment-01.jpg`, `studio-01.jpg`],
+    preview: `apartment-small-03.jpg`,
+    title: `Caesars Studion`,
+    description: `Caesars Place apartment is located in Amsterdam, 400 metres from Leidseplein and 500 metres from Flower market. Free Wi-Fi is available throughout the property.`,
+    isPremium: true,
+    isBookMark: true,
+    price: 90,
+    type: OfferTypes.HOUSE,
+    rating: 4,
+    bedroomsMax: `1 Bedrooms`,
+    guestsMax: `Max 2 adults`,
+    amenities: [`Wi-Fi`, `Kitchen`, `Parking`, `Dishwasher`, `Heating`, `Coffee machine`, `Bicycles`],
+    hostInfo: {
+      avatar: `avatar-max.jpg`,
+      name: `Andy`,
+      isSuper: false,
+    },
+    coordinates: [48.838062, 2.318591],
+  },
 ];
 
-export default offers;
+export {offers};
