@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import {offerPropType} from "../../prop-types";
 import {Cities, CityCoordinates} from "../../const";
 import {connect} from "react-redux";
+import {getSortCardTypeOffers} from "../../utils";
 
 class Map extends PureComponent {
   constructor(props) {
@@ -16,18 +17,11 @@ class Map extends PureComponent {
       iconUrl: `img/pin.svg`,
       iconSize: [30, 30],
     });
-
-    this.mapRef = React.createRef();
-  }
-
-  addMarkers() {
-    this.props.offers.map((offer) => {
-      leaflet
-        .marker(
-            offer.coordinates,
-            {icon: this.icon})
-        .addTo(this.map);
+    this.activeIcon = leaflet.icon({
+      iconUrl: `/img/pin-active.svg`,
+      iconSize: [30, 30],
     });
+    this.offers = getSortCardTypeOffers(this.props.offers, this.props.currentCardType, this.props.offerId);
   }
 
   componentDidMount() {
@@ -46,13 +40,58 @@ class Map extends PureComponent {
         }
     ).addTo(this.map);
 
-    this.addMarkers();
+    this.offers.map((offer) => {
+      leaflet
+        .marker(
+            offer.coordinates,
+            {icon: this.icon})
+        .addTo(this.map);
+    });
 
     this.map.setView(cityCoordinates, this.zoom);
   }
 
-  componentWillUnmount() {
-    this.map = null;
+  componentDidUpdate() {
+    this.map.remove();
+    const {offers, mouseOverOfferId, currentCardType, offerId} = this.props;
+    const sortCardTypeOffers = getSortCardTypeOffers(offers, currentCardType, offerId);
+
+    const city = offers.find((offer) => {
+      return +offer.id === +mouseOverOfferId;
+    });
+
+    const cityCoordinates = CityCoordinates[city.city];
+
+    this.map = leaflet.map(`map`, {
+      center: cityCoordinates,
+      zoom: this.zoom,
+      zoomControl: false,
+      marker: true
+    });
+
+    leaflet.tileLayer(
+        `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
+          attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
+        }
+    ).addTo(this.map);
+
+    sortCardTypeOffers.map((offer) => {
+      if (+offer.id === +mouseOverOfferId) {
+        leaflet
+          .marker(
+              offer.coordinates,
+              {icon: this.activeIcon})
+          .addTo(this.map);
+      } else {
+        leaflet
+          .marker(
+              offer.coordinates,
+              {icon: this.icon})
+          .addTo(this.map);
+      }
+    });
+
+    this.map.setView(cityCoordinates, this.zoom);
   }
 
   render() {
@@ -65,11 +104,15 @@ class Map extends PureComponent {
 Map.propTypes = {
   offers: PropTypes.arrayOf(offerPropType).isRequired,
   activeCity: PropTypes.oneOf(Cities).isRequired,
+  mouseOverOfferId: PropTypes.number,
+  currentCardType: PropTypes.string,
+  offerId: PropTypes.number,
 };
 
 const mapStateToProps = (state) => ({
   offers: state.offers,
-  activeCity: state.activeCity
+  activeCity: state.activeCity,
+  mouseOverOfferId: state.mouseOverOfferId,
 });
 
 export {Map};

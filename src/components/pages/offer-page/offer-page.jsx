@@ -118,6 +118,8 @@ const OfferPage = (props) => {
             <Map
               activeCity={offer.city}
               offers={relatedOffers}
+              currentCardType={OfferCardTypes.RELATED}
+              offerId={offer.id}
             />
           </section>
         </section>
@@ -128,6 +130,7 @@ const OfferPage = (props) => {
               <OffersList
                 offers={relatedOffers}
                 currentCardType={OfferCardTypes.RELATED}
+                offerId={offer.id}
               />
             </div>
           </section>
