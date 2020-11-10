@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import {offerPropType} from "../../prop-types";
 import {Cities, CityCoordinates} from "../../const";
 import {connect} from "react-redux";
+import {getSortCardTypeOffers} from "../../utils";
 
 class Map extends PureComponent {
   constructor(props) {
@@ -20,6 +21,7 @@ class Map extends PureComponent {
       iconUrl: `/img/pin-active.svg`,
       iconSize: [30, 30],
     });
+    this.offers = getSortCardTypeOffers(this.props.offers, this.props.currentCardType, this.props.offerId);
   }
 
   componentDidMount() {
@@ -38,7 +40,7 @@ class Map extends PureComponent {
         }
     ).addTo(this.map);
 
-    this.props.offers.map((offer) => {
+    this.offers.map((offer) => {
       leaflet
         .marker(
             offer.coordinates,
@@ -51,7 +53,8 @@ class Map extends PureComponent {
 
   componentDidUpdate() {
     this.map.remove();
-    const {offers, mouseOverOfferId} = this.props;
+    const {offers, mouseOverOfferId, currentCardType, offerId} = this.props;
+    const sortCardTypeOffers = getSortCardTypeOffers(offers, currentCardType, offerId);
 
     const city = offers.find((offer) => {
       return +offer.id === +mouseOverOfferId;
@@ -72,7 +75,7 @@ class Map extends PureComponent {
         }
     ).addTo(this.map);
 
-    this.props.offers.map((offer) => {
+    sortCardTypeOffers.map((offer) => {
       if (+offer.id === +mouseOverOfferId) {
         leaflet
           .marker(
@@ -101,7 +104,9 @@ class Map extends PureComponent {
 Map.propTypes = {
   offers: PropTypes.arrayOf(offerPropType).isRequired,
   activeCity: PropTypes.oneOf(Cities).isRequired,
-  mouseOverOfferId: PropTypes.number
+  mouseOverOfferId: PropTypes.number,
+  currentCardType: PropTypes.string,
+  offerId: PropTypes.number,
 };
 
 const mapStateToProps = (state) => ({
