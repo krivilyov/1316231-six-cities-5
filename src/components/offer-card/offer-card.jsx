@@ -27,7 +27,7 @@ const OfferCard = (props) => {
     <article className={`${getCardClass[currentCardType]} place-card`}
       onMouseOver={() => {
         if (currentOffer !== offer) {
-          onMouseOverOffer(offer);
+          onMouseOverOffer(offer.id);
         }
       }}>
       {isPremium && (

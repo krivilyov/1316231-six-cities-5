@@ -30,3 +30,24 @@ export const CityCoordinates = {
   HAMBURG: [53.575323, 10.01534],
   DUSSELDORF: [51.228304, 6.793849],
 };
+
+export const Sorting = {
+  POPULAR: `popular`,
+  PRICE_TO_HIGH: `to-high`,
+  PRICE_TO_LOW: `to-low`,
+  TOP_RATED: `top-rated`,
+};
+
+export const SortingTitles = {
+  [Sorting.POPULAR]: `Popular`,
+  [Sorting.PRICE_TO_HIGH]: `Price: low to high`,
+  [Sorting.PRICE_TO_LOW]: `Price: high to low`,
+  [Sorting.TOP_RATED]: `Top rated first`,
+};
+
+export const SortingTypes = [
+  Sorting.POPULAR,
+  Sorting.PRICE_TO_HIGH,
+  Sorting.PRICE_TO_LOW,
+  Sorting.TOP_RATED,
+];
