@@ -10,6 +10,7 @@ import {ActionCreator} from "../../../store/action";
 import OffersSorting from "../../offers-sorting/offers-sorting";
 import {getSortedOffers} from "../../../store/selectors";
 import IndexEmptyPage from "../index-empty-page/index-empty-page";
+import {getActiveCityName} from "../../../utils";
 
 const IndexPage = (props) => {
   const {offers, activeCity, changeCity, onOptionClick} = props;
@@ -52,7 +53,7 @@ const IndexPage = (props) => {
               <Fragment>
                 <section className="cities__places places">
                   <h2 className="visually-hidden">Places</h2>
-                  <b className="places__found">{offersQuantity} places to stay in Amsterdam</b>
+                  <b className="places__found">{offersQuantity} places to stay in {getActiveCityName(activeCity)}</b>
 
                   <OffersSorting
                     onOptionClick={onOptionClick}
