@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import Review from "./../review/review";
 import {reviewPropType} from "../../prop-types";
 import OfferCommentForm from "../offer-comment-form/offer-comment-form";
+import withOfferCommentForm from "../../hocs/with-offer-comment-form/with-offer-comment-form";
+
+const OfferCommentFormWrapper = withOfferCommentForm(OfferCommentForm);
 
 const ReviewsList = (props) => {
   const {reviews} = props;
@@ -21,7 +24,7 @@ const ReviewsList = (props) => {
         }
       </ul>
 
-      <OfferCommentForm />
+      <OfferCommentFormWrapper />
 
     </section>
   );
