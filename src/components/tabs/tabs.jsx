@@ -6,6 +6,7 @@ import {Cities} from "../../const";
 
 const Tabs = (props) => {
   const {activeCity, onTabClick} = props;
+
   return (
     <div className="tabs">
       <section className="locations container">
@@ -36,7 +37,7 @@ const Tabs = (props) => {
 };
 
 Tabs.propTypes = {
-  activeCity: PropTypes.oneOf(Cities).isRequired,
+  activeCity: PropTypes.string.isRequired,
   onTabClick: PropTypes.func.isRequired
 };
 

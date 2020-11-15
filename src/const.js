@@ -22,6 +22,15 @@ export const Cities = [
   `DUSSELDORF`
 ];
 
+export const CityName = {
+  PARIS: `Paris`,
+  COLOGNE: `Cologne`,
+  BRUSSELS: `Brussels`,
+  AMSTERDAM: `Amsterdam`,
+  HAMBURG: `Hamburg`,
+  DUSSELDORF: `Dusseldorf`,
+};
+
 export const CityCoordinates = {
   AMSTERDAM: [52.38333, 4.9],
   PARIS: [48.866667, 2.333333],

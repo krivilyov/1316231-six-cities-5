@@ -4,7 +4,7 @@ import {offerPropType} from "../../prop-types";
 import OfferCard from "../offer-card/offer-card";
 import {connect} from "react-redux";
 import {getSortedOffers} from "../../store/selectors";
-import {ActionCreator} from "../../store/action";
+import {setOverOfferId} from "../../store/action";
 import {getSortCardTypeOffers} from "../../utils";
 
 const OffersList = (props) => {
@@ -37,7 +37,7 @@ const mapToStateProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onMouseOverOffer: (offer) => dispatch(ActionCreator.onMouseOverOffer(offer))
+  onMouseOverOffer: (offer) => dispatch(setOverOfferId(offer))
 });
 
 export {OffersList};

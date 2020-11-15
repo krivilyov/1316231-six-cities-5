@@ -6,7 +6,7 @@ import {OfferCardTypes} from "../../const";
 
 const OfferCard = (props) => {
   const {offer, currentCardType, onMouseOverOffer, currentOffer} = props;
-  const {id, isPremium, pictures, preview, price, isBookMark, rating, title, type} = offer;
+  const {id, isPremium, smallImg, price, isBookMark, rating, title, type} = offer;
   const isFavoriteType = currentCardType === OfferCardTypes.FAVORITE;
 
   const getCardClass = {
@@ -37,7 +37,7 @@ const OfferCard = (props) => {
       <div className={`${getWrapperClass[currentCardType]} place-card__image-wrapper`}>
         <Link to={`/offer/${id}`}>
           <img className="place-card__image"
-            src={`img/${isFavoriteType ? preview : pictures[0]}`}
+            src={smallImg}
             width={isFavoriteType ? `150` : `260`}
             height={isFavoriteType ? `110` : `200`}
             alt="Place image"/>
