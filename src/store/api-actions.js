@@ -7,6 +7,6 @@ export const fetchOffers = () => (dispatch, getState, api) => (
       const offers = getParsedOffers(data);
       dispatch(loadOffers(offers));
       let currentState = getState();
-      dispatch(setCityOffers(getCityOffers(currentState.offers, currentState.activeCity)));
+      dispatch(setCityOffers(getCityOffers(currentState.COMMON.offers, currentState.COMMON.activeCity)));
     })
 );

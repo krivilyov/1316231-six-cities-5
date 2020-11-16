@@ -1,4 +1,5 @@
 import {formatUpperCaseFirst} from "./utils";
+import {Sorting} from "./const";
 
 export const getCityOffers = (offers, city) => offers.filter((it) => it.city === city);
 
@@ -26,4 +27,19 @@ const getParsedOffer = (data) => {
     coordinates: [data[`location`][`latitude`], data[`location`][`longitude`]],
   };
 };
+
 export const getParsedOffers = (dataArray) => dataArray.map((it) => getParsedOffer(it));
+
+export const getSortedOffersByType = (offers, sortType) => {
+  switch (sortType) {
+    case Sorting.POPULAR:
+      return offers.slice();
+    case Sorting.PRICE_TO_HIGH:
+      return offers.slice().sort((a, b) => a.price - b.price);
+    case Sorting.PRICE_TO_LOW:
+      return offers.slice().sort((a, b) => b.price - a.price);
+    case Sorting.TOP_RATED:
+      return offers.slice().sort((a, b) => b.rating - a.rating);
+  }
+  return offers;
+};

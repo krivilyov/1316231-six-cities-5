@@ -66,7 +66,7 @@ OffersSorting.propTypes = {
 
 
 const mapStateToProps = (state) => ({
-  sortingType: state.sortingType
+  sortingType: state.COMMON.sortingType
 });
 
 export {OffersSorting};

@@ -8,7 +8,7 @@ import Tabs from "../../tabs/tabs";
 import {connect} from "react-redux";
 import {setSortingTypeAction, changeCityAction, onMouseOverOffer} from "../../../store/action";
 import OffersSorting from "../../offers-sorting/offers-sorting";
-import {getSortedOffers} from "../../../store/selectors";
+import {getCurrentCityOffers} from "../../../store/selectors";
 import IndexEmptyPage from "../index-empty-page/index-empty-page";
 import {formatUpperCaseFirst} from "../../../utils";
 
@@ -91,8 +91,8 @@ IndexPage.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  offers: getSortedOffers(state),
-  activeCity: state.activeCity,
+  offers: getCurrentCityOffers(state),
+  activeCity: state.COMMON.activeCity,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {offerPropType} from "../../prop-types";
 import OfferCard from "../offer-card/offer-card";
 import {connect} from "react-redux";
-import {getSortedOffers} from "../../store/selectors";
+import {getCurrentSortedCityOffers} from "../../store/selectors";
 import {setOverOfferId} from "../../store/action";
 import {getSortCardTypeOffers} from "../../utils";
 
@@ -32,8 +32,8 @@ OffersList.propTypes = {
 };
 
 const mapToStateProps = (state) => ({
-  city: state.activeCity,
-  offers: getSortedOffers(state)
+  city: state.COMMON.activeCity,
+  offers: getCurrentSortedCityOffers(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

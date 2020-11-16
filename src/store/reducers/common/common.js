@@ -1,18 +1,20 @@
-import {CityName, Sorting} from "../const";
+import {CityName, Sorting} from "../../../const";
 // import {offers} from "../mocks/offers";
-import {reviews} from "../mocks/reviews";
-import {extend} from "../utils";
-import {ActionType} from "./action";
+import {reviews} from "../../../mocks/reviews";
+import {extend} from "../../../utils";
+import {ActionType} from "../../action";
 
 const initialState = {
   activeCity: CityName.AMSTERDAM,
   offers: [],
+  offer: {},
   reviews,
   sortingType: Sorting.POPULAR,
   mouseOverOfferId: null,
+  changedBookmarkOffer: {},
 };
 
-export function reducer(state = initialState, action) {
+export const common = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.CHANGE_CITY:
       return extend(state, {activeCity: action.payload});
@@ -24,4 +26,4 @@ export function reducer(state = initialState, action) {
       return extend(state, {offers: action.payload});
   }
   return state;
-}
+};

@@ -6,7 +6,7 @@ import {OfferCardTypes} from "../../const";
 
 const OfferCard = (props) => {
   const {offer, currentCardType, onMouseOverOffer, currentOffer} = props;
-  const {id, isPremium, smallImg, price, isBookMark, rating, title, type} = offer;
+  const {id, isPremium, smallImg, price, isBookmark, rating, title, type} = offer;
   const isFavoriteType = currentCardType === OfferCardTypes.FAVORITE;
 
   const getCardClass = {
@@ -50,12 +50,12 @@ const OfferCard = (props) => {
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
           <button className={`place-card__bookmark-button
-           ${isBookMark && `place-card__bookmark-button--active`}
+           ${isBookmark && `place-card__bookmark-button--active`}
            button`} type="button">
             <svg className="place-card__bookmark-icon" width="18" height="19">
               <use xlinkHref="#icon-bookmark"></use>
             </svg>
-            <span className="visually-hidden">{isBookMark ? `In bookmarks` : `To bookmarks`}</span>
+            <span className="visually-hidden">{isBookmark ? `In bookmarks` : `To bookmarks`}</span>
           </button>
         </div>
         <div className="place-card__rating rating">

@@ -88,8 +88,8 @@ Map.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  activeCity: state.activeCity,
-  mouseOverOfferId: state.mouseOverOfferId,
+  activeCity: state.COMMON.activeCity,
+  mouseOverOfferId: state.COMMON.mouseOverOfferId,
 });
 
 export {Map};

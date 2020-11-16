@@ -33,6 +33,8 @@ const App = (props) => {
           render={({match}) => (
             <OfferPage
               offerId={match.params.id}
+              offer = {offers.find((item) => item.id === match.params.id)}
+              relatedOffers = {[offers[0], offers[1], offers[2]]}
             />
           )}
         />
@@ -50,8 +52,8 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  offers: state.offers,
-  reviews: state.reviews,
+  offers: state.COMMON.offers,
+  reviews: state.COMMON.reviews,
 });
 
 export {App};

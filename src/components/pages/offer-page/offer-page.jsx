@@ -6,10 +6,12 @@ import {OfferCardTypes} from "../../../const";
 import OffersList from "../../offers-list/offers-list";
 import ReviewsList from "../../reviews-list/reviews-list";
 import Map from "../../map/map";
+import {connect} from "react-redux";
+import {getCurrentCityOffers} from "../../../store/selectors";
 
 const OfferPage = (props) => {
   const {offer, reviews, relatedOffers} = props;
-  const {pictures, isPremium, title, isBookMark, rating, type, bedroomsMax, guestsMax, price, amenities, hostInfo, description} = offer;
+  const {img, isPremium, title, isBookmark, rating, type, bedroomsMax, guestsMax, price, hostTop, description, host, avatar, city, option} = offer;
 
   return (
     <div className="page">
@@ -39,9 +41,9 @@ const OfferPage = (props) => {
         <section className="property">
           <div className="property__gallery-container container">
             <div className="property__gallery">
-              {pictures.slice(0, 6).map((picture) => (
+              {img.slice(0, 6).map((picture) => (
                 <div key={picture} className="property__image-wrapper">
-                  <img className="property__image" src={`img/${picture}`} alt="Photo studio" />
+                  <img className="property__image" src={picture} alt="Photo studio" />
                 </div>
               ))}
             </div>
@@ -54,11 +56,11 @@ const OfferPage = (props) => {
                   {title}
                 </h1>
                 <button className={`property__bookmark-button button ${
-                  isBookMark ? ` property__bookmark-button--active` : ``}`} type="button">
+                  isBookmark ? ` property__bookmark-button--active` : ``}`} type="button">
                   <svg className="property__bookmark-icon" width="31" height="33">
                     <use xlinkHref="#icon-bookmark"></use>
                   </svg>
-                  <span className="visually-hidden">{isBookMark ? `In bookmarks` : `To bookmarks`}</span>
+                  <span className="visually-hidden">{isBookmark ? `In bookmarks` : `To bookmarks`}</span>
                 </button>
               </div>
               <div className="property__rating rating">
@@ -86,9 +88,9 @@ const OfferPage = (props) => {
               <div className="property__inside">
                 <h2 className="property__inside-title">What&apos;s inside</h2>
                 <ul className="property__inside-list">
-                  {amenities.slice().map((amenity) => (
-                    <li key={amenity} className="property__inside-item">
-                      {amenity}
+                  {option.slice().map((item) => (
+                    <li key={item} className="property__inside-item">
+                      {item}
                     </li>
                   ))}
                 </ul>
@@ -96,11 +98,11 @@ const OfferPage = (props) => {
               <div className="property__host">
                 <h2 className="property__host-title">Meet the host</h2>
                 <div className="property__host-user user">
-                  <div className={`property__avatar-wrapper ${hostInfo.isSuper ? `property__avatar-wrapper--pro` : false} user__avatar-wrapper`}>
-                    <img className="property__avatar user__avatar" src={`img/${hostInfo.avatar}`} width="74" height="74" alt="Host avatar" />
+                  <div className={`property__avatar-wrapper ${hostTop ? `property__avatar-wrapper--pro` : false} user__avatar-wrapper`}>
+                    <img className="property__avatar user__avatar" src={avatar} width="74" height="74" alt="Host avatar" />
                   </div>
                   <span className="property__user-name">
-                    {hostInfo.name}
+                    {host}
                   </span>
                 </div>
                 <div className="property__description">
@@ -116,7 +118,7 @@ const OfferPage = (props) => {
           </div>
           <section className="property__map map">
             <Map
-              activeCity={offer.city}
+              activeCity={city}
               offers={relatedOffers}
               currentCardType={OfferCardTypes.RELATED}
               offerId={offer.id}
@@ -140,10 +142,17 @@ const OfferPage = (props) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  offers: getCurrentCityOffers(state),
+  reviews: state.COMMON.reviews,
+});
+
 OfferPage.propTypes = {
   offer: offerPropType.isRequired,
   relatedOffers: PropTypes.arrayOf(offerPropType).isRequired,
   reviews: PropTypes.arrayOf(reviewPropType).isRequired,
+  offerId: PropTypes.string.isRequired,
 };
 
-export default OfferPage;
+export {OfferPage};
+export default connect(mapStateToProps)(OfferPage);
