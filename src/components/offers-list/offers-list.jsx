@@ -28,7 +28,7 @@ OffersList.propTypes = {
   offers: PropTypes.arrayOf(offerPropType).isRequired,
   currentCardType: PropTypes.string.isRequired,
   onMouseOverOffer: PropTypes.func.isRequired,
-  offerId: PropTypes.number,
+  offerId: PropTypes.string,
 };
 
 const mapToStateProps = (state) => ({

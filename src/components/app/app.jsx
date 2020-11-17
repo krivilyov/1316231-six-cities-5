@@ -32,7 +32,6 @@ const App = (props) => {
         <Route exact path="/offer/:id"
           render={({match}) => (
             <OfferPage
-              offerId={match.params.id}
               offer = {offers.find((item) => item.id === match.params.id)}
               relatedOffers = {[offers[0], offers[1], offers[2]]}
             />

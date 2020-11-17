@@ -151,7 +151,6 @@ OfferPage.propTypes = {
   offer: offerPropType.isRequired,
   relatedOffers: PropTypes.arrayOf(offerPropType).isRequired,
   reviews: PropTypes.arrayOf(reviewPropType).isRequired,
-  offerId: PropTypes.string.isRequired,
 };
 
 export {OfferPage};

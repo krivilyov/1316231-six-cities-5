@@ -12,6 +12,7 @@ class Map extends PureComponent {
 
     this.map = null;
     this.zoom = 12;
+    this.cityCoordinatesDefault = [52.3909553943508, 4.85309666406198];
     this.icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
       iconSize: [30, 30],
@@ -25,7 +26,7 @@ class Map extends PureComponent {
   }
 
   componentDidMount() {
-    const cityCoordinates = this.offers[0].cityCoordinates;
+    const cityCoordinates = this.offers[0].cityCoordinates ? this.offers[0].cityCoordinates : this.cityCoordinatesDefault;
 
     this.map = leaflet.map(`map`, {
       center: cityCoordinates,
@@ -48,7 +49,7 @@ class Map extends PureComponent {
   componentDidUpdate() {
     const {offers, currentCardType, offerId} = this.props;
     const sortCardTypeOffers = getSortCardTypeOffers(offers, currentCardType, offerId);
-    const cityCoordinates = this.offers[0].cityCoordinates;
+    const cityCoordinates = this.offers[0].cityCoordinates ? this.offers[0].cityCoordinates : this.cityCoordinatesDefault;
     this._removeMarkersFromMap();
     this._addMarkersToMap(sortCardTypeOffers);
     this.map.setView(cityCoordinates, this.zoom);
@@ -84,7 +85,7 @@ Map.propTypes = {
   activeCity: PropTypes.string.isRequired,
   mouseOverOfferId: PropTypes.string,
   currentCardType: PropTypes.string,
-  offerId: PropTypes.number,
+  offerId: PropTypes.string,
 };
 
 const mapStateToProps = (state) => ({
