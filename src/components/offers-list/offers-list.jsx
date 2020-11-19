@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import {offerPropType} from "../../prop-types";
 import OfferCard from "../offer-card/offer-card";
 import {connect} from "react-redux";
-import {getSortedOffers} from "../../store/selectors";
-import {ActionCreator} from "../../store/action";
+import {getCurrentSortedCityOffers} from "../../store/selectors";
+import {setOverOfferId} from "../../store/action";
 import {getSortCardTypeOffers} from "../../utils";
 
 const OffersList = (props) => {
@@ -28,16 +28,16 @@ OffersList.propTypes = {
   offers: PropTypes.arrayOf(offerPropType).isRequired,
   currentCardType: PropTypes.string.isRequired,
   onMouseOverOffer: PropTypes.func.isRequired,
-  offerId: PropTypes.number,
+  offerId: PropTypes.string,
 };
 
 const mapToStateProps = (state) => ({
-  city: state.activeCity,
-  offers: getSortedOffers(state)
+  city: state.COMMON.activeCity,
+  offers: getCurrentSortedCityOffers(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onMouseOverOffer: (offer) => dispatch(ActionCreator.onMouseOverOffer(offer))
+  onMouseOverOffer: (offer) => dispatch(setOverOfferId(offer))
 });
 
 export {OffersList};
