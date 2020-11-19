@@ -28,7 +28,7 @@ export const login = ({login: email, password}) => (dispatch, _getState, api) =>
         return response;
       }
     })
-    .then(() => dispatch(redirectToRoute(AppRoute.MAIN)))
+    .then(() => dispatch(redirectToRoute(AppRoute.INDEX)))
     .catch((err) => {
       return err;
     })

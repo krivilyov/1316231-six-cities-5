@@ -19,7 +19,7 @@ const App = (props) => {
   return (
     <Router history={browserHistory}>
       <Switch>
-        <Route exact path={AppRoute.MAIN}>
+        <Route exact path={AppRoute.INDEX}>
           <IndexPage />
         </Route>
         <Route exact path={AppRoute.LOGIN}>

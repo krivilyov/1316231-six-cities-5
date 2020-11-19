@@ -65,7 +65,8 @@ export const APIRoute = {
 };
 
 export const AppRoute = {
-  MAIN: `/`,
+  INDEX: `/`,
+  OFFER: `/offer`,
   FAVORITES: `/favorites`,
   LOGIN: `/login`,
 };
