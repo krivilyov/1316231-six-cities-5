@@ -2,15 +2,15 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import OffersList from "../../offers-list/offers-list";
 import {offerPropType} from "../../../prop-types";
-import {OfferCardTypes, Cities} from "../../../const";
+import {OfferCardTypes} from "../../../const";
 import Map from "../../map/map";
 import Tabs from "../../tabs/tabs";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../../store/action";
+import {setSortingTypeAction, changeCityAction, onMouseOverOffer} from "../../../store/action";
 import OffersSorting from "../../offers-sorting/offers-sorting";
-import {getSortedOffers} from "../../../store/selectors";
+import {getCurrentCityOffers} from "../../../store/selectors";
 import IndexEmptyPage from "../index-empty-page/index-empty-page";
-import {getActiveCityName} from "../../../utils";
+import {formatUpperCaseFirst} from "../../../utils";
 
 const IndexPage = (props) => {
   const {offers, activeCity, changeCity, onOptionClick} = props;
@@ -53,7 +53,7 @@ const IndexPage = (props) => {
               <Fragment>
                 <section className="cities__places places">
                   <h2 className="visually-hidden">Places</h2>
-                  <b className="places__found">{offersQuantity} places to stay in {getActiveCityName(activeCity)}</b>
+                  <b className="places__found">{offersQuantity} places to stay in {formatUpperCaseFirst(activeCity)}</b>
 
                   <OffersSorting
                     onOptionClick={onOptionClick}
@@ -70,6 +70,7 @@ const IndexPage = (props) => {
                   <section className="cities__map map">
                     <Map
                       key={activeCity}
+                      offers={offers}
                     />
                   </section>
                 </div>
@@ -84,20 +85,20 @@ const IndexPage = (props) => {
 
 IndexPage.propTypes = {
   offers: PropTypes.arrayOf(offerPropType).isRequired,
-  activeCity: PropTypes.oneOf(Cities).isRequired,
+  activeCity: PropTypes.string.isRequired,
   changeCity: PropTypes.func.isRequired,
   onOptionClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  offers: getSortedOffers(state),
-  activeCity: state.activeCity,
+  offers: getCurrentCityOffers(state),
+  activeCity: state.COMMON.activeCity,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeCity: (city) => dispatch(ActionCreator.changeCityAction(city)),
-  onOptionClick: (type) => dispatch(ActionCreator.setSortingTypeAction(type)),
-  onMouseOverOffer: (offer) => dispatch(ActionCreator.onMouseOverOffer(offer))
+  changeCity: (city) => dispatch(changeCityAction(city)),
+  onOptionClick: (type) => dispatch(setSortingTypeAction(type)),
+  onMouseOverOffer: (offer) => dispatch(onMouseOverOffer(offer))
 });
 
 export {IndexPage};

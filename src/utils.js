@@ -10,7 +10,7 @@ export function getSortCardTypeOffers(offers, cardType, offerId) {
   }
 }
 
-export function getActiveCityName(str) {
+export function formatUpperCaseFirst(str) {
   if (!str) {
     return str;
   }

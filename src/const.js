@@ -14,13 +14,22 @@ export const OfferCardTypes = {
 export const RadioValues = [`5`, `4`, `3`, `2`, `1`];
 
 export const Cities = [
-  `AMSTERDAM`,
-  `PARIS`,
-  `COLOGNE`,
-  `BRUSSELS`,
-  `HAMBURG`,
-  `DUSSELDORF`
+  `Amsterdam`,
+  `Paris`,
+  `Cologne`,
+  `Brussels`,
+  `Hamburg`,
+  `Dusseldorf`
 ];
+
+export const CityName = {
+  PARIS: `Paris`,
+  COLOGNE: `Cologne`,
+  BRUSSELS: `Brussels`,
+  AMSTERDAM: `Amsterdam`,
+  HAMBURG: `Hamburg`,
+  DUSSELDORF: `Dusseldorf`,
+};
 
 export const CityCoordinates = {
   AMSTERDAM: [52.38333, 4.9],
