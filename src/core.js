@@ -43,3 +43,12 @@ export const getSortedOffersByType = (offers, sortType) => {
   }
   return offers;
 };
+
+export const getParsedAuthInfo = (data) => {
+  return {
+    id: data[`id`],
+    email: data[`email`],
+    avatarUrl: data[`avatar_url`],
+    isPro: data[`is_pro`],
+  };
+};

@@ -7,17 +7,22 @@ import {rootReducer} from "./store/reducers/root-reducer";
 import thunk from "redux-thunk";
 import {createAPI} from "./services/api";
 import {composeWithDevTools} from "redux-devtools-extension";
-import {fetchOffers} from "./store/api-actions";
+import {checkAuth, fetchOffers} from "./store/api-actions";
+import {redirect} from "./store/middlewares/redirect";
 
 const api = createAPI(() => {});
 
 const store = createStore(
     rootReducer,
-    composeWithDevTools(applyMiddleware(thunk.withExtraArgument(api)))
+    composeWithDevTools(
+        applyMiddleware(thunk.withExtraArgument(api)),
+        applyMiddleware(redirect)
+    )
 );
 
 Promise.all([
-  store.dispatch(fetchOffers())
+  store.dispatch(fetchOffers()),
+  store.dispatch(checkAuth()),
 ])
   .then(() => {
     ReactDOM.render(
