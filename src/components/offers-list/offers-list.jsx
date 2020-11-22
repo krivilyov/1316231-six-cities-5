@@ -5,15 +5,13 @@ import OfferCard from "../offer-card/offer-card";
 import {connect} from "react-redux";
 import {getCurrentSortedCityOffers} from "../../store/selectors";
 import {setOverOfferId} from "../../store/action";
-import {getSortCardTypeOffers} from "../../utils";
 
 const OffersList = (props) => {
 
-  const {offers, currentCardType, onMouseOverOffer, offerId} = props;
-  const sortCardTypeOffers = getSortCardTypeOffers(offers, currentCardType, offerId);
+  const {offers, currentCardType, onMouseOverOffer} = props;
 
   return (
-    sortCardTypeOffers.map((offer) => (
+    offers.map((offer) => (
       <OfferCard
         key={offer.id}
         offer={offer}

@@ -7,6 +7,9 @@ const getActiveCity = (state) => state.COMMON.activeCity;
 const getCurrentSortingType = (state) => state.COMMON.sortingType;
 export const getAuthorizationStatus = (state) => state.USER.authorizationStatus;
 export const getAuthInfo = (state) => state.USER.authInfo;
+export const getChangedBookmarkOffer = (state) => state.COMMON.changedBookmarkOffer;
+export const getReviews = (state) => state.COMMON.reviews;
+export const getRelatedOffers = (state) => state.COMMON.relatedOffers;
 
 export const getCurrentCityOffers = createSelector(
     getOffers,

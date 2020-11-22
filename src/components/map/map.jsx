@@ -26,7 +26,7 @@ class Map extends PureComponent {
   }
 
   componentDidMount() {
-    const cityCoordinates = this.offers[0].cityCoordinates ? this.offers[0].cityCoordinates : this.cityCoordinatesDefault;
+    const cityCoordinates = this.offers[0].cityCoordinates !== undefined ? this.offers[0].cityCoordinates : this.cityCoordinatesDefault;
 
     this.map = leaflet.map(`map`, {
       center: cityCoordinates,
@@ -49,7 +49,7 @@ class Map extends PureComponent {
   componentDidUpdate() {
     const {offers, currentCardType, offerId} = this.props;
     const sortCardTypeOffers = getSortCardTypeOffers(offers, currentCardType, offerId);
-    const cityCoordinates = this.offers[0].cityCoordinates ? this.offers[0].cityCoordinates : this.cityCoordinatesDefault;
+    const cityCoordinates = this.offers[0].cityCoordinates !== undefined ? this.offers[0].cityCoordinates : this.cityCoordinatesDefault;
     this._removeMarkersFromMap();
     this._addMarkersToMap(sortCardTypeOffers);
     this.map.setView(cityCoordinates, this.zoom);

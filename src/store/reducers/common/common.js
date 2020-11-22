@@ -1,17 +1,18 @@
 import {CityName, Sorting} from "../../../const";
-// import {offers} from "../mocks/offers";
 import {reviews} from "../../../mocks/reviews";
 import {extend} from "../../../utils";
 import {ActionType} from "../../action";
+import {getOffersWithNewOfferByIndex} from "../../../core";
 
 const initialState = {
   activeCity: CityName.AMSTERDAM,
   offers: [],
-  offer: {},
   reviews,
   sortingType: Sorting.POPULAR,
   mouseOverOfferId: null,
   changedBookmarkOffer: {},
+  relatedOffers: [],
+  bookmarkOffers: [],
 };
 
 export const common = (state = initialState, action) => {
@@ -24,6 +25,15 @@ export const common = (state = initialState, action) => {
       return extend(state, {mouseOverOfferId: action.payload});
     case ActionType.LOAD_OFFERS:
       return extend(state, {offers: action.payload});
+    case ActionType.LOAD_BOOKMARK_OFFER:
+      return extend(state, {changedBookmarkOffer: action.payload});
+    case ActionType.LOAD_RELATED_OFFERS:
+      return extend(state, {relatedOffers: action.payload});
+    case ActionType.CHANGE_BOOKMARK_STATUS_OFFER_IN_OFFERS:
+      return extend(state, {
+        offers: getOffersWithNewOfferByIndex(state.offers, action.payload),
+        changedBookmarkOffer: action.payload,
+      });
   }
   return state;
 };

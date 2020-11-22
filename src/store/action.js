@@ -7,6 +7,11 @@ export const ActionType = {
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
   LOAD_AUTH_INFO: `LOAD_AUTH_INFO`,
   REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
+  LOAD_BOOKMARK_OFFERS: `LOAD_BOOKMARK_OFFERS`,
+  LOAD_BOOKMARK_OFFER: `LOAD_BOOKMARK_OFFER`,
+  LOAD_RELATED_OFFERS: `LOAD_RELATED_OFFERS`,
+  CHANGE_BOOKMARK_STATUS_OFFER_IN_OFFERS: `CHANGE_BOOKMARK_STATUS_OFFER_IN_OFFERS`,
+  CHANGE_BOOKMARK_STATUS_OFFER_IN_RELATED_OFFERS: `CHANGE_BOOKMARK_STATUS_OFFER_IN_RELATED_OFFERS`,
 };
 
 export const setOverOfferId = (offer) => ({
@@ -46,4 +51,29 @@ export const loadAuthInfo = (authInfo) => ({
 export const redirectToRoute = (url) => ({
   type: ActionType.REDIRECT_TO_ROUTE,
   payload: url,
+});
+
+export const loadBookmarkOffers = (offers) => ({
+  type: ActionType.LOAD_BOOKMARK_OFFERS,
+  payload: offers,
+});
+
+export const loadBookmarkOffer = (offer) => ({
+  type: ActionType.LOAD_BOOKMARK_OFFER,
+  payload: offer,
+});
+
+export const loadRelatedOffer = (offers) => ({
+  type: ActionType.LOAD_RELATED_OFFERS,
+  payload: offers,
+});
+
+export const changeBookmarkStatusOfferInOffers = (offer) => ({
+  type: ActionType.CHANGE_BOOKMARK_STATUS_OFFER_IN_OFFERS,
+  payload: offer,
+});
+
+export const changeBookmarkStatusOfferInRelatedOffers = (offer) => ({
+  type: ActionType.CHANGE_BOOKMARK_STATUS_OFFER_IN_RELATED_OFFERS,
+  payload: offer,
 });
