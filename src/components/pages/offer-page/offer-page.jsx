@@ -151,14 +151,13 @@ class OfferPage extends PureComponent {
       </div>
     );
   }
-};
+}
 
 const mapStateToProps = (state) => ({
   offer: getChangedBookmarkOffer(state),
   reviews: getReviews(state),
   relatedOffers: getRelatedOffers(state),
   offerBookmarkStatus: getChangedBookmarkOffer(state).isBookmark,
-  onMouseOverOffer: PropTypes.func.isRequired,
 });
 
 const mapDispatchToProps = (dispatch) => ({

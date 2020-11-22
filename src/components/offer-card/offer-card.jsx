@@ -3,10 +3,13 @@ import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {offerPropType} from "../../prop-types";
 import {OfferCardTypes} from "../../const";
+import OfferCardBookmark from "../offer-card-bookmark/offer-card-bookmark";
+import {connect} from "react-redux";
+import {fetchBookmarkOffers, updateOfferBookmarkStatus} from "../../store/api-actions";
 
 const OfferCard = (props) => {
   const {offer, currentCardType, onMouseOverOffer, currentOffer} = props;
-  const {id, isPremium, smallImg, price, isBookmark, rating, title, type} = offer;
+  const {id, isPremium, smallImg, price, rating, title, type} = offer;
   const isFavoriteType = currentCardType === OfferCardTypes.FAVORITE;
 
   const getCardClass = {
@@ -49,14 +52,12 @@ const OfferCard = (props) => {
             <b className="place-card__price-value">&euro;{price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
-          <button className={`place-card__bookmark-button
-           ${isBookmark && `place-card__bookmark-button--active`}
-           button`} type="button">
-            <svg className="place-card__bookmark-icon" width="18" height="19">
-              <use xlinkHref="#icon-bookmark"></use>
-            </svg>
-            <span className="visually-hidden">{isBookmark ? `In bookmarks` : `To bookmarks`}</span>
-          </button>
+
+          <OfferCardBookmark
+            offerId={offer.id}
+            offerBookmarkStatus={offer.isBookmark}
+          />
+
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
@@ -73,6 +74,11 @@ const OfferCard = (props) => {
   );
 };
 
+OfferCard.defaultProps = {
+  onMouseOverOffer: () => {
+  },
+};
+
 OfferCard.propTypes = {
   offer: offerPropType,
   currentOffer: offerPropType,
@@ -80,4 +86,14 @@ OfferCard.propTypes = {
   currentCardType: PropTypes.string.isRequired,
 };
 
-export default OfferCard;
+const mapDispatchToProps = (dispatch) => ({
+  onChangeBookmark(offerId, bookmarkStatus) {
+    dispatch(updateOfferBookmarkStatus(offerId, bookmarkStatus));
+  },
+  onChangeBookmarkOffers() {
+    dispatch(fetchBookmarkOffers());
+  },
+});
+
+export {OfferCard};
+export default connect(null, mapDispatchToProps)(OfferCard);

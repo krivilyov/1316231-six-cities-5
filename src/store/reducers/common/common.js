@@ -34,6 +34,8 @@ export const common = (state = initialState, action) => {
         offers: getOffersWithNewOfferByIndex(state.offers, action.payload),
         changedBookmarkOffer: action.payload,
       });
+    case ActionType.LOAD_BOOKMARK_OFFERS:
+      return extend(state, {bookmarkOffers: action.payload});
   }
   return state;
 };

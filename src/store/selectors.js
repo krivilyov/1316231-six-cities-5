@@ -10,6 +10,7 @@ export const getAuthInfo = (state) => state.USER.authInfo;
 export const getChangedBookmarkOffer = (state) => state.COMMON.changedBookmarkOffer;
 export const getReviews = (state) => state.COMMON.reviews;
 export const getRelatedOffers = (state) => state.COMMON.relatedOffers;
+export const getBookmarkOffers = (state) => state.COMMON.bookmarkOffers;
 
 export const getCurrentCityOffers = createSelector(
     getOffers,
@@ -47,5 +48,17 @@ export const getUserAvatar = createSelector(
     getAuthInfo,
     (authorizationStatus, authInfo) => {
       return authorizationStatus === AuthorizationStatus.AUTH ? authInfo.avatarUrl : ``;
+    }
+);
+
+export const getBookmarkOffersByCity = createSelector(
+    getBookmarkOffers,
+    (bookmarkOffers) => {
+      const bookmarkOffersByCityMap = new Map();
+      bookmarkOffers.forEach((item) => {
+        bookmarkOffersByCityMap.set(item.city, bookmarkOffersByCityMap.has(item.city) ?
+          [...bookmarkOffersByCityMap.get(item.city), item] : [item]);
+      });
+      return bookmarkOffersByCityMap;
     }
 );

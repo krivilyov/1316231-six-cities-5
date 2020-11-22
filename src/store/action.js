@@ -3,7 +3,6 @@ export const ActionType = {
   SET_SORTING_TYPE: `SET_SORTING_TYPE`,
   MOUSE_OVER: `MOUSE_OVER`,
   LOAD_OFFERS: `LOAD_OFFERS`,
-  SET_CITY_OFFERS: `SET_CITY_OFFERS`,
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
   LOAD_AUTH_INFO: `LOAD_AUTH_INFO`,
   REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
@@ -32,10 +31,6 @@ export const changeCityAction = (city) => ({
 export const loadOffers = (offers) => ({
   type: ActionType.LOAD_OFFERS,
   payload: offers,
-});
-
-export const setCityOffers = () => ({
-  type: ActionType.SET_CITY_OFFERS,
 });
 
 export const requireAuthorization = (status) => ({
