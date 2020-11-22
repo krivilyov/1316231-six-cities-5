@@ -1,5 +1,4 @@
 import {CityName, Sorting} from "../../../const";
-import {reviews} from "../../../mocks/reviews";
 import {extend} from "../../../utils";
 import {ActionType} from "../../action";
 import {getOffersWithNewOfferByIndex} from "../../../core";
@@ -7,7 +6,7 @@ import {getOffersWithNewOfferByIndex} from "../../../core";
 const initialState = {
   activeCity: CityName.AMSTERDAM,
   offers: [],
-  reviews,
+  reviews: [],
   sortingType: Sorting.POPULAR,
   mouseOverOfferId: null,
   changedBookmarkOffer: {},
@@ -36,6 +35,8 @@ export const common = (state = initialState, action) => {
       });
     case ActionType.LOAD_BOOKMARK_OFFERS:
       return extend(state, {bookmarkOffers: action.payload});
+    case ActionType.LOAD_REVIEWS:
+      return extend(state, {reviews: action.payload});
   }
   return state;
 };

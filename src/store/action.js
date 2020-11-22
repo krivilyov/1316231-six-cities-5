@@ -11,6 +11,7 @@ export const ActionType = {
   LOAD_RELATED_OFFERS: `LOAD_RELATED_OFFERS`,
   CHANGE_BOOKMARK_STATUS_OFFER_IN_OFFERS: `CHANGE_BOOKMARK_STATUS_OFFER_IN_OFFERS`,
   CHANGE_BOOKMARK_STATUS_OFFER_IN_RELATED_OFFERS: `CHANGE_BOOKMARK_STATUS_OFFER_IN_RELATED_OFFERS`,
+  LOAD_REVIEWS: `LOAD_REVIEWS`,
 };
 
 export const setOverOfferId = (offer) => ({
@@ -71,4 +72,9 @@ export const changeBookmarkStatusOfferInOffers = (offer) => ({
 export const changeBookmarkStatusOfferInRelatedOffers = (offer) => ({
   type: ActionType.CHANGE_BOOKMARK_STATUS_OFFER_IN_RELATED_OFFERS,
   payload: offer,
+});
+
+export const loadReviews = (reviews) => ({
+  type: ActionType.LOAD_REVIEWS,
+  payload: reviews,
 });

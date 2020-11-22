@@ -8,8 +8,9 @@ import {
   loadRelatedOffer,
   changeBookmarkStatusOfferInOffers,
   changeBookmarkStatusOfferInRelatedOffers,
+  loadReviews
 } from "./action";
-import {getParsedOffer, getParsedAuthInfo, getParsedArray} from "../core";
+import {getParsedOffer, getParsedAuthInfo, getParsedArray, getParsedReview} from "../core";
 import {APIRoute, AuthorizationStatus, ResponseType, AppRoute, HttpCode} from "../const";
 
 export const fetchOffers = () => (dispatch, getState, api) => (
@@ -112,3 +113,28 @@ export const updateOfferBookmarkStatus = (offerId, bookmarkStatus) => (dispatch,
     })
 );
 
+export const fetchReviews = (offerId) => (dispatch, getState, api) => (
+  api.get(`${APIRoute.REVIEWS}/${offerId}`)
+    .then(({data}) => {
+      const reviews = getParsedArray(data, getParsedReview);
+      dispatch(loadReviews(reviews));
+      return ResponseType.SUCCESS;
+    })
+    .catch((err) => {
+      return err;
+    })
+);
+
+export const uploadReview = ({rating, review: comment, offerId, onClearFormField, onSetResponseFormStatus}) => (dispatch, getState, api) => (
+  api.post(`${APIRoute.REVIEWS}/${offerId}`, {comment, rating})
+    .then(({data}) => {
+      const reviews = getParsedArray(data, getParsedReview);
+      dispatch(loadReviews(reviews));
+      onSetResponseFormStatus(false);
+      onClearFormField();
+      return ResponseType.SUCCESS;
+    })
+    .catch((err) => {
+      return err;
+    })
+);

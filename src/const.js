@@ -92,3 +92,8 @@ export const offerBookmarkTypeProperty = {
     height: `33`,
   },
 };
+
+export const CommentCharacter = {
+  MIN: 50,
+  MAX: 300,
+};

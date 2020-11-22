@@ -6,9 +6,9 @@ import OfferCard from "../../offer-card/offer-card";
 import ReviewsList from "../../reviews-list/reviews-list";
 import Map from "../../map/map";
 import {connect} from "react-redux";
-import {getChangedBookmarkOffer, getReviews, getRelatedOffers} from "../../../store/selectors";
+import {getChangedBookmarkOffer, getReviews, getRelatedOffers, getIsAuthorizedStatus} from "../../../store/selectors";
 import Header from "../../header/header";
-import {fetchIdOffer, fetchRelatedOffers, updateOfferBookmarkStatus, fetchBookmarkOffers} from "../../../store/api-actions";
+import {fetchIdOffer, fetchRelatedOffers, updateOfferBookmarkStatus, fetchBookmarkOffers, fetchReviews} from "../../../store/api-actions";
 import OfferBookmark from "../../offer-bookmark/offer-bookmark";
 import {setOverOfferId} from "../../../store/action";
 
@@ -18,22 +18,23 @@ class OfferPage extends PureComponent {
   }
 
   componentDidMount() {
-    const {offerId, loadOfferAction, loadRelatedOffersAction} = this.props;
+    const {offerId, loadOfferAction, loadRelatedOffersAction, loadReviewsAction} = this.props;
     loadOfferAction(offerId);
     loadRelatedOffersAction(offerId);
-
+    loadReviewsAction(offerId);
   }
 
   componentDidUpdate(prevProps) {
-    const {offerId, loadOfferAction, loadRelatedOffersAction} = this.props;
+    const {offerId, loadOfferAction, loadRelatedOffersAction, loadReviewsAction} = this.props;
     if (prevProps.offerId !== offerId) {
       loadOfferAction(offerId);
       loadRelatedOffersAction(offerId);
+      loadReviewsAction(offerId);
     }
   }
 
   render() {
-    const {offer, reviews, offerBookmarkStatus, relatedOffers, onMouseOverOffer} = this.props;
+    const {offer, reviews, offerBookmarkStatus, relatedOffers, onMouseOverOffer, isAuthorizedStatus} = this.props;
 
     return !offer.id ? (
       <div>Идёт загрузка...</div>
@@ -118,6 +119,8 @@ class OfferPage extends PureComponent {
 
                 <ReviewsList
                   reviews={reviews}
+                  offer={offer}
+                  isAuthorizedStatus={isAuthorizedStatus}
                 />
 
               </div>
@@ -158,6 +161,7 @@ const mapStateToProps = (state) => ({
   reviews: getReviews(state),
   relatedOffers: getRelatedOffers(state),
   offerBookmarkStatus: getChangedBookmarkOffer(state).isBookmark,
+  isAuthorizedStatus: getIsAuthorizedStatus(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -174,6 +178,9 @@ const mapDispatchToProps = (dispatch) => ({
   onChangeBookmarkOffers() {
     dispatch(fetchBookmarkOffers());
   },
+  loadReviewsAction(offerId) {
+    dispatch(fetchReviews(offerId));
+  },
 });
 
 OfferPage.propTypes = {
@@ -183,8 +190,10 @@ OfferPage.propTypes = {
   offerId: PropTypes.string.isRequired,
   loadOfferAction: PropTypes.func.isRequired,
   loadRelatedOffersAction: PropTypes.func.isRequired,
+  loadReviewsAction: PropTypes.func.isRequired,
   offerBookmarkStatus: PropTypes.any,
   onMouseOverOffer: PropTypes.func.isRequired,
+  isAuthorizedStatus: PropTypes.bool.isRequired,
 };
 
 export {OfferPage};

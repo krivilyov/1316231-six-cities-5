@@ -62,3 +62,18 @@ export const getOffersWithNewOfferByIndex = (offers, offer) => {
   cloneOffers[index] = offer;
   return cloneOffers;
 };
+
+export const getParsedReview = (data) => {
+  return {
+    id: data[`id`],
+    date: data[`date`],
+    comment: data[`comment`],
+    rate: data[`rating`],
+    user: {
+      id: data[`user`][`id`],
+      avatarUrl: data[`user`][`avatar_url`],
+      isPro: data[`user`][`is_pro`],
+      name: data[`user`][`name`],
+    },
+  };
+};
