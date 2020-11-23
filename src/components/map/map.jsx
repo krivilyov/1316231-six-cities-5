@@ -1,6 +1,5 @@
 import React, {PureComponent} from "react";
 import leaflet from "leaflet";
-import "leaflet/dist/leaflet.css";
 import PropTypes from "prop-types";
 import {offerPropType} from "../../prop-types";
 import {connect} from "react-redux";
@@ -82,14 +81,12 @@ class Map extends PureComponent {
 
 Map.propTypes = {
   offers: PropTypes.arrayOf(offerPropType).isRequired,
-  activeCity: PropTypes.string.isRequired,
   mouseOverOfferId: PropTypes.string,
   currentCardType: PropTypes.string,
   offerId: PropTypes.string,
 };
 
 const mapStateToProps = (state) => ({
-  activeCity: state.COMMON.activeCity,
   mouseOverOfferId: state.COMMON.mouseOverOfferId,
 });
 
