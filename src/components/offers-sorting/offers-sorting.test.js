@@ -3,8 +3,8 @@ import renderer from "react-test-renderer";
 import {OffersSorting} from "./offers-sorting";
 
 const noop = () => {};
-describe(`OfferSorting should render correctly`, () => {
-  it(`OfferSortingItem should render correctly when the type is current`, () => {
+describe(`OffersSorting should render correctly`, () => {
+  it(`OffersSortingItem should render correctly when the type is current`, () => {
     const tree = renderer
       .create(
           <OffersSorting

@@ -575,6 +575,7 @@ exports[`Offer should render correctly 1`] = `
               className="near-places__image-wrapper place-card__image-wrapper"
             >
               <a
+                className="place-card__img-link"
                 href="/offer/7"
                 onClick={[Function]}
               >

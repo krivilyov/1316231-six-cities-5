@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OfferSorting should render correctly OfferSortingItem should render correctly when the type is current 1`] = `
+exports[`OffersSorting should render correctly OffersSortingItem should render correctly when the type is current 1`] = `
 <form
   action="#"
   className="places__sorting"
@@ -13,6 +13,7 @@ exports[`OfferSorting should render correctly OfferSortingItem should render cor
   </span>
   <span
     className="places__sorting-type"
+    id="places__sorting-type"
     onClick={[Function]}
     tabIndex="0"
   >
