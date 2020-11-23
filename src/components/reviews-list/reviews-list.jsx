@@ -8,7 +8,7 @@ import withOfferCommentForm from "../../hocs/with-offer-comment-form/with-offer-
 const OfferCommentFormWrapper = withOfferCommentForm(OfferCommentForm);
 
 const ReviewsList = (props) => {
-  const {reviews} = props;
+  const {reviews, offer, isAuthorizedStatus} = props;
 
   return (
     <section className="property__reviews reviews">
@@ -17,14 +17,16 @@ const ReviewsList = (props) => {
         {
           reviews.map((review) => (
             <Review
-              key={review.reviewId}
+              key={review.id}
               review={review}
             />
           ))
         }
       </ul>
 
-      <OfferCommentFormWrapper />
+      {isAuthorizedStatus && <OfferCommentFormWrapper
+        offerId={offer.id}
+      />}
 
     </section>
   );
@@ -32,6 +34,8 @@ const ReviewsList = (props) => {
 
 ReviewsList.propTypes = {
   reviews: PropTypes.arrayOf(reviewPropType).isRequired,
+  offer: PropTypes.any.isRequired,
+  isAuthorizedStatus: PropTypes.bool.isRequired,
 };
 
 export default ReviewsList;

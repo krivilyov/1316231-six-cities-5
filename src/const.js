@@ -31,15 +31,6 @@ export const CityName = {
   DUSSELDORF: `Dusseldorf`,
 };
 
-export const CityCoordinates = {
-  AMSTERDAM: [52.38333, 4.9],
-  PARIS: [48.866667, 2.333333],
-  COLOGNE: [50.933333, 6.95],
-  BRUSSELS: [50.833333, 4.333333],
-  HAMBURG: [53.575323, 10.01534],
-  DUSSELDORF: [51.228304, 6.793849],
-};
-
 export const Sorting = {
   POPULAR: `popular`,
   PRICE_TO_HIGH: `to-high`,
@@ -60,3 +51,49 @@ export const SortingTypes = [
   Sorting.PRICE_TO_LOW,
   Sorting.TOP_RATED,
 ];
+
+export const AuthorizationStatus = {
+  AUTH: `AUTH`,
+  NO_AUTH: `NO_AUTH`,
+};
+
+export const APIRoute = {
+  OFFERS: `/hotels`,
+  LOGIN: `/login`,
+  FAVORITE: `/favorite`,
+  REVIEWS: `/comments`,
+};
+
+export const AppRoute = {
+  INDEX: `/`,
+  OFFER: `/offer`,
+  FAVORITES: `/favorites`,
+  LOGIN: `/login`,
+};
+
+export const ResponseType = {
+  SUCCESS: `SUCCESS`,
+  ERROR: `ERROR`,
+};
+
+export const HttpCode = {
+  UNAUTHORIZED: 401
+};
+
+export const offerBookmarkTypeProperty = {
+  card: {
+    bemBlock: `place-card`,
+    width: `18`,
+    height: `19`,
+  },
+  page: {
+    bemBlock: `property`,
+    width: `31`,
+    height: `33`,
+  },
+};
+
+export const CommentCharacter = {
+  MIN: 50,
+  MAX: 300,
+};
