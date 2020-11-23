@@ -23,13 +23,16 @@ const offerPropType = PropTypes.shape({
 });
 
 const reviewPropType = PropTypes.shape({
-  reviewId: PropTypes.number.isRequired,
-  reviewDate: PropTypes.string.isRequired,
-  reviewRating: PropTypes.number.isRequired,
-  userInfo: PropTypes.shape({
-    userAvatar: PropTypes.string.isRequired,
-    userName: PropTypes.string.isRequired,
-  }).isRequired
+  comment: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  rate: PropTypes.number.isRequired,
+  user: PropTypes.shape({
+    avatarUrl: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    isPro: PropTypes.bool.isRequired,
+    name: PropTypes.string.isRequired,
+  })
 });
 
 export {offerPropType, reviewPropType};

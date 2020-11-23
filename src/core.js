@@ -3,7 +3,7 @@ import {Sorting} from "./const";
 
 export const getCityOffers = (offers, city) => offers.filter((it) => it.city === city);
 
-const getParsedOffer = (data) => {
+export const getParsedOffer = (data) => {
   return {
     id: String(data[`id`]),
     img: data[`images`],
@@ -28,8 +28,6 @@ const getParsedOffer = (data) => {
   };
 };
 
-export const getParsedOffers = (dataArray) => dataArray.map((it) => getParsedOffer(it));
-
 export const getSortedOffersByType = (offers, sortType) => {
   switch (sortType) {
     case Sorting.POPULAR:
@@ -50,5 +48,32 @@ export const getParsedAuthInfo = (data) => {
     email: data[`email`],
     avatarUrl: data[`avatar_url`],
     isPro: data[`is_pro`],
+  };
+};
+
+export const getParsedArray = (dataArray, getParsedItem) => dataArray.map((it) => getParsedItem(it));
+
+export const getOffersWithNewOfferByIndex = (offers, offer) => {
+  const cloneOffers = offers.slice();
+  const index = cloneOffers.findIndex((it) => it.id === offer.id);
+  if (index === -1) {
+    return offers;
+  }
+  cloneOffers[index] = offer;
+  return cloneOffers;
+};
+
+export const getParsedReview = (data) => {
+  return {
+    id: data[`id`],
+    date: data[`date`],
+    comment: data[`comment`],
+    rate: data[`rating`],
+    user: {
+      id: data[`user`][`id`],
+      avatarUrl: data[`user`][`avatar_url`],
+      isPro: data[`user`][`is_pro`],
+      name: data[`user`][`name`],
+    },
   };
 };

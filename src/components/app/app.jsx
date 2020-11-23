@@ -1,8 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {connect} from "react-redux";
 import {Router, Switch, Route} from 'react-router-dom';
-import {offerPropType, reviewPropType} from "../../prop-types";
 import IndexPage from "../pages/index-page/index-page";
 import LoginPage from "../pages/login-page/login-page";
 import FavoritesPage from "../pages/favorites-page/favorites-page";
@@ -12,14 +9,12 @@ import {AppRoute} from "../../const";
 import PrivateRoute from "./../private-route/private-route";
 import browserHistory from "../../browser-history";
 
-const App = (props) => {
-  const {offers} = props;
-  const bookMarkOffers = offers.filter((it) => it.isBookMark);
+const App = () => {
 
   return (
     <Router history={browserHistory}>
       <Switch>
-        <Route exact path={AppRoute.MAIN}>
+        <Route exact path={AppRoute.INDEX}>
           <IndexPage />
         </Route>
         <Route exact path={AppRoute.LOGIN}>
@@ -30,17 +25,14 @@ const App = (props) => {
           path={AppRoute.FAVORITES}
           render={() => {
             return (
-              <FavoritesPage
-                bookMarkOffers={bookMarkOffers}
-              />
+              <FavoritesPage />
             );
           }}
         />
         <Route exact path="/offer/:id"
           render={({match}) => (
             <OfferPage
-              offer = {offers.find((item) => item.id === match.params.id)}
-              relatedOffers = {[offers[0], offers[1], offers[2]]}
+              offerId={match.params.id}
             />
           )}
         />
@@ -52,15 +44,4 @@ const App = (props) => {
   );
 };
 
-App.propTypes = {
-  offers: PropTypes.arrayOf(offerPropType).isRequired,
-  reviews: PropTypes.arrayOf(reviewPropType).isRequired,
-};
-
-const mapStateToProps = (state) => ({
-  offers: state.COMMON.offers,
-  reviews: state.COMMON.reviews,
-});
-
-export {App};
-export default connect(mapStateToProps)(App);
+export default App;
