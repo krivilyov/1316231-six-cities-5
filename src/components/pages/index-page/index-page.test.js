@@ -10,12 +10,16 @@ import {testInitialState} from "../../../test-data";
 const mockStore = configureMockStore();
 const store = mockStore(testInitialState);
 
+const noop = () => {};
+
 it(`Main should render correctly`, () => {
   const tree = renderer
     .create(
         <Provider store={store}>
           <MemoryRouter>
             <IndexPage
+              changeCity={noop}
+              onOptionClick={noop}
               offers={[]}
               activeCity={`City1`}
               userEMail={`user@mail.com`}

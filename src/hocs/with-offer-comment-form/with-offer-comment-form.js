@@ -42,7 +42,7 @@ const withOfferCommentForm = (Component) => {
 
     render() {
       const {rating, review, isValidForm, isWaitedResponseFormStatus} = this.state;
-      const isDisabledSubmitButton = isValidForm && !isWaitedResponseFormStatus;
+      const isDisabledSubmitButton = isValidForm ? true : false && !isWaitedResponseFormStatus;
 
       return (
         <Component

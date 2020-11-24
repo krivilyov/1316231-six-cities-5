@@ -3,7 +3,6 @@
 exports[`OfferCard should render correctly 1`] = `
 <article
   className="undefined place-card"
-  onMouseOver={[Function]}
 >
   <div
     className="undefined place-card__image-wrapper"

@@ -8,6 +8,7 @@ export const testInitialState = {
     changedBookmarkOffer: {},
     relatedOffers: [],
     bookmarkOffers: [],
+    overOfferId: ``,
   },
   USER: {
     authorizationStatus: `NO_AUTH`,

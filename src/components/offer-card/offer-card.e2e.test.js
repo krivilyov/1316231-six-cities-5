@@ -31,20 +31,14 @@ const mockOffer = {
 };
 
 it(`click on OfferCard correctly`, () => {
-  const onMouseOverOffer = jest.fn();
   const onChangeOfferId = jest.fn();
-  const onChangeBookmarkOffers = jest.fn();
   const onChangeBookmark = jest.fn();
   const wrapper = shallow(
       <OfferCard
         offer={mockOffer}
-        changedBookmarkOffer={mockOffer}
         currentCardType={`type1`}
         overOfferId={`1`}
-        onMouseOverOffer={onMouseOverOffer}
         onChangeOfferId={onChangeOfferId}
-        onChangeBookmarkOffers={onChangeBookmarkOffers}
-        onChangeBookmark={onChangeBookmark}
       />
   );
 

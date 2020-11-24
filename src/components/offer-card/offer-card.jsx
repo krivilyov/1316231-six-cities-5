@@ -88,7 +88,6 @@ const OfferCard = (props) => {
 
 OfferCard.propTypes = {
   offer: offerPropType,
-  currentOffer: offerPropType,
   currentCardType: PropTypes.string.isRequired,
   onChangeOfferId: PropTypes.func.isRequired,
   overOfferId: PropTypes.string.isRequired,

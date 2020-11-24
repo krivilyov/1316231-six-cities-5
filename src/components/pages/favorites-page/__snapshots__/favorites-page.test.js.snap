@@ -214,7 +214,6 @@ Array [
               >
                 <article
                   className="favorites__card place-card"
-                  onMouseOver={[Function]}
                 >
                   <div
                     className="favorites__image-wrapper place-card__image-wrapper"
@@ -317,7 +316,6 @@ Array [
                 </article>
                 <article
                   className="favorites__card place-card"
-                  onMouseOver={[Function]}
                 >
                   <div
                     className="favorites__image-wrapper place-card__image-wrapper"
@@ -444,7 +442,6 @@ Array [
               >
                 <article
                   className="favorites__card place-card"
-                  onMouseOver={[Function]}
                 >
                   <div
                     className="favorites__image-wrapper place-card__image-wrapper"

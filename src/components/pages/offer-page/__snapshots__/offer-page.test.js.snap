@@ -569,7 +569,6 @@ exports[`Offer should render correctly 1`] = `
         >
           <article
             className="near-places__card place-card"
-            onMouseOver={[Function]}
           >
             <div
               className="near-places__image-wrapper place-card__image-wrapper"
