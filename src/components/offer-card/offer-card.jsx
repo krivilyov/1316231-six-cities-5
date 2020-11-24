@@ -38,7 +38,7 @@ const OfferCard = (props) => {
           <span>Premium</span>
         </div>)}
       <div className={`${getWrapperClass[currentCardType]} place-card__image-wrapper`}>
-        <Link to={`/offer/${id}`}>
+        <Link to={`/offer/${id}`} className={`place-card__img-link`}>
           <img className="place-card__image"
             src={smallImg}
             width={isFavoriteType ? `150` : `260`}

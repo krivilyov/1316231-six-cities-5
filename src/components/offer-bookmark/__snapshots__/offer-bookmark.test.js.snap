@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OfferBookmark should render correctly OfferBookmark should render correctly when isAuthorizedStatus={false} and offerBookmarkStatus={false} 1`] = `
+<a
+  className="property__bookmark-button button"
+  href="/login"
+  onClick={[Function]}
+  type="button"
+>
+  <svg
+    className="property__bookmark-icon"
+    height="33"
+    width="31"
+  >
+    <use
+      xlinkHref="#icon-bookmark"
+    />
+  </svg>
+  <span
+    className="visually-hidden"
+  >
+    To
+     bookmarks
+  </span>
+</a>
+`;
+
+exports[`OfferBookmark should render correctly OfferBookmark should render correctly when isAuthorizedStatus={false} and offerBookmarkStatus={true} 1`] = `
+<a
+  className="property__bookmark-button  property__bookmark-button--active button"
+  href="/login"
+  onClick={[Function]}
+  type="button"
+>
+  <svg
+    className="property__bookmark-icon"
+    height="33"
+    width="31"
+  >
+    <use
+      xlinkHref="#icon-bookmark"
+    />
+  </svg>
+  <span
+    className="visually-hidden"
+  >
+    In
+     bookmarks
+  </span>
+</a>
+`;
+
+exports[`OfferBookmark should render correctly OfferBookmark should render correctly when isAuthorizedStatus={true} and offerBookmarkStatus={false} 1`] = `
+<button
+  className="property__bookmark-button button"
+  onClick={[Function]}
+  type="button"
+>
+  <svg
+    className="property__bookmark-icon"
+    height="33"
+    width="31"
+  >
+    <use
+      xlinkHref="#icon-bookmark"
+    />
+  </svg>
+  <span
+    className="visually-hidden"
+  >
+    To
+     bookmarks
+  </span>
+</button>
+`;
+
+exports[`OfferBookmark should render correctly OfferBookmark should render correctly when isAuthorizedStatus={true} and offerBookmarkStatus={true} 1`] = `
+<button
+  className="property__bookmark-button  property__bookmark-button--active button"
+  onClick={[Function]}
+  type="button"
+>
+  <svg
+    className="property__bookmark-icon"
+    height="33"
+    width="31"
+  >
+    <use
+      xlinkHref="#icon-bookmark"
+    />
+  </svg>
+  <span
+    className="visually-hidden"
+  >
+    In
+     bookmarks
+  </span>
+</button>
+`;

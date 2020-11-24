@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OfferBookmarkContent should render correctly OfferBookmarkContent should render correctly when offerBookmarkStatus={false} 1`] = `
+Array [
+  <svg
+    className="property__bookmark-icon"
+    height="33"
+    width="31"
+  >
+    <use
+      xlinkHref="#icon-bookmark"
+    />
+  </svg>,
+  <span
+    className="visually-hidden"
+  >
+    To
+     bookmarks
+  </span>,
+]
+`;
+
+exports[`OfferBookmarkContent should render correctly OfferBookmarkContent should render correctly when offerBookmarkStatus={true} 1`] = `
+Array [
+  <svg
+    className="property__bookmark-icon"
+    height="33"
+    width="31"
+  >
+    <use
+      xlinkHref="#icon-bookmark"
+    />
+  </svg>,
+  <span
+    className="visually-hidden"
+  >
+    In
+     bookmarks
+  </span>,
+]
+`;
