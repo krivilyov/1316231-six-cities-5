@@ -8,7 +8,7 @@ import Tabs from "../../tabs/tabs";
 import {connect} from "react-redux";
 import {setSortingTypeAction, changeCityAction} from "../../../store/action";
 import OffersSorting from "../../offers-sorting/offers-sorting";
-import {getCurrentCityOffers} from "../../../store/selectors";
+import {getCurrentSortedCityOffers} from "../../../store/selectors";
 import IndexEmptyPage from "../index-empty-page/index-empty-page";
 import {formatUpperCaseFirst} from "../../../utils";
 import Header from "../../header/header";
@@ -77,7 +77,7 @@ IndexPage.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  offers: getCurrentCityOffers(state),
+  offers: getCurrentSortedCityOffers(state),
   activeCity: state.COMMON.activeCity,
   userEMail: state.USER.authorizationStatus === AuthorizationStatus.AUTH ? state.USER.authInfo.email : ``,
   userAvatar: state.USER.authorizationStatus === AuthorizationStatus.AUTH ? state.USER.authInfo.avatarUrl : ``,
