@@ -16,6 +16,7 @@ const OffersSorting = (props) => {
     <form className="places__sorting" action="#" method="get">
       <span className="places__sorting-caption">Sort by</span>
       <span
+        id="places__sorting-type"
         className="places__sorting-type"
         tabIndex="0"
         onClick={onToggleClick}

@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserLinkContent should render correctly UserLinkContent should render correctly when isAuthorizedStatus={false} 1`] = `
+Array [
+  <div
+    className="header__avatar-wrapper user__avatar-wrapper"
+  />,
+  <span
+    className="header__login"
+  >
+    Sign in
+  </span>,
+]
+`;
+
+exports[`UserLinkContent should render correctly UserLinkContent should render correctly when isAuthorizedStatus={true} 1`] = `
+Array [
+  <div
+    className="header__avatar-wrapper user__avatar-wrapper"
+    style={
+      Object {
+        "backgroundImage": "url(avatar-url)",
+      }
+    }
+  />,
+  <span
+    className="header__user-name user__name"
+  >
+    user@mail.com
+  </span>,
+]
+`;
