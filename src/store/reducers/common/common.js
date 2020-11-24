@@ -8,7 +8,7 @@ const initialState = {
   offers: [],
   reviews: [],
   sortingType: Sorting.POPULAR,
-  mouseOverOfferId: null,
+  overOfferId: ``,
   changedBookmarkOffer: {},
   relatedOffers: [],
   bookmarkOffers: [],
@@ -20,8 +20,8 @@ export const common = (state = initialState, action) => {
       return extend(state, {activeCity: action.payload});
     case ActionType.SET_SORTING_TYPE:
       return extend(state, {sortingType: action.payload});
-    case ActionType.MOUSE_OVER:
-      return extend(state, {mouseOverOfferId: action.payload});
+    case ActionType.SET_OVER_OFFER_ID:
+      return extend(state, {overOfferId: action.payload});
     case ActionType.LOAD_OFFERS:
       return extend(state, {offers: action.payload});
     case ActionType.LOAD_BOOKMARK_OFFER:
@@ -31,6 +31,11 @@ export const common = (state = initialState, action) => {
     case ActionType.CHANGE_BOOKMARK_STATUS_OFFER_IN_OFFERS:
       return extend(state, {
         offers: getOffersWithNewOfferByIndex(state.offers, action.payload),
+        changedBookmarkOffer: action.payload,
+      });
+    case ActionType.CHANGE_BOOKMARK_STATUS_OFFER_IN_RELATED_OFFERS:
+      return extend(state, {
+        relatedOffers: getOffersWithNewOfferByIndex(state.relatedOffers, action.payload),
         changedBookmarkOffer: action.payload,
       });
     case ActionType.LOAD_BOOKMARK_OFFERS:

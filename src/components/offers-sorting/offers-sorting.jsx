@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import withToggle from "../../hocs/with-toggle/with-toggle";
-import {SortingTypes, SortingTitles} from '../../const';
+import {SortingTypes, SortingTitle} from '../../const';
 
 const OffersSorting = (props) => {
   const {toggle, onOptionClick, onToggleClick, sortingType} = props;
@@ -21,7 +21,7 @@ const OffersSorting = (props) => {
         tabIndex="0"
         onClick={onToggleClick}
       >
-        {SortingTitles[sortingType]}
+        {SortingTitle[sortingType]}
         <svg className="places__sorting-arrow" width="7" height="4">
           <use xlinkHref="#icon-arrow-select"></use>
         </svg>
@@ -34,7 +34,7 @@ const OffersSorting = (props) => {
             tabIndex="0"
             onClick={() => handleOptionClick(item)}
           >
-            {SortingTitles[item]}
+            {SortingTitle[item]}
           </li>
         ))}
       </ul>
@@ -50,7 +50,7 @@ const OffersSorting = (props) => {
             className={`places__option ${item}`}
             value={item}
           >
-            {SortingTitles[item]}
+            {SortingTitle[item]}
           </option>
         ))}
       </select>

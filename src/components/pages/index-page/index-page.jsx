@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import OffersList from "../../offers-list/offers-list";
 import {offerPropType} from "../../../prop-types";
-import {OfferCardTypes, AuthorizationStatus, AppRoute} from "../../../const";
+import {OfferCardType, AuthorizationStatus, AppRoute} from "../../../const";
 import Map from "../../map/map";
 import Tabs from "../../tabs/tabs";
 import {connect} from "react-redux";
@@ -45,7 +45,7 @@ const IndexPage = (props) => {
                   <div className="cities__places-list places__list tabs__content">
                     <OffersList
                       offers={offers}
-                      currentCardType={OfferCardTypes.INDEX}
+                      currentCardType={OfferCardType.INDEX}
                     />
                   </div>
                 </section>

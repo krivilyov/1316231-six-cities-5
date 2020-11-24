@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from "prop-types";
 import {offerPropType, reviewPropType} from "../../../prop-types";
-import {OfferCardTypes, AppRoute} from "../../../const";
+import {OfferCardType, AppRoute} from "../../../const";
 import OfferCard from "../../offer-card/offer-card";
 import ReviewsList from "../../reviews-list/reviews-list";
 import Map from "../../map/map";
@@ -10,7 +10,6 @@ import {getChangedBookmarkOffer, getReviews, getRelatedOffers, getIsAuthorizedSt
 import Header from "../../header/header";
 import {fetchIdOffer, fetchRelatedOffers, updateOfferBookmarkStatus, fetchBookmarkOffers, fetchReviews} from "../../../store/api-actions";
 import OfferBookmark from "../../offer-bookmark/offer-bookmark";
-import {setOverOfferId} from "../../../store/action";
 
 class OfferPage extends PureComponent {
   constructor(props) {
@@ -34,7 +33,7 @@ class OfferPage extends PureComponent {
   }
 
   render() {
-    const {offer, reviews, offerBookmarkStatus, relatedOffers, onMouseOverOffer, isAuthorizedStatus} = this.props;
+    const {offer, reviews, offerBookmarkStatus, relatedOffers, isAuthorizedStatus} = this.props;
 
     return !offer.id ? (
       <div>Идёт загрузка...</div>
@@ -129,7 +128,6 @@ class OfferPage extends PureComponent {
               <Map
                 activeCity={offer.city}
                 offers={[offer, ...relatedOffers]}
-                currentCardType={OfferCardTypes.RELATED}
                 offerId={offer.id}
               />
             </section>
@@ -142,9 +140,8 @@ class OfferPage extends PureComponent {
                   <OfferCard
                     key={item.id}
                     offer={item}
-                    currentCardType={OfferCardTypes.RELATED}
+                    currentCardType={OfferCardType.RELATED}
                     offerBookmarkStatus={item.isBookmark}
-                    onMouseOverOffer={onMouseOverOffer}
                   />
                 ))}
               </div>
@@ -171,7 +168,6 @@ const mapDispatchToProps = (dispatch) => ({
   loadRelatedOffersAction(offerId) {
     dispatch(fetchRelatedOffers(offerId));
   },
-  onMouseOverOffer: (offer) => dispatch(setOverOfferId(offer)),
   onChangeBookmark(offerId, bookmarkStatus) {
     dispatch(updateOfferBookmarkStatus(offerId, bookmarkStatus));
   },
@@ -192,7 +188,6 @@ OfferPage.propTypes = {
   loadRelatedOffersAction: PropTypes.func.isRequired,
   loadReviewsAction: PropTypes.func.isRequired,
   offerBookmarkStatus: PropTypes.any,
-  onMouseOverOffer: PropTypes.func.isRequired,
   isAuthorizedStatus: PropTypes.bool.isRequired,
 };
 

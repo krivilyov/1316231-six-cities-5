@@ -1,7 +1,7 @@
 export const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
   SET_SORTING_TYPE: `SET_SORTING_TYPE`,
-  MOUSE_OVER: `MOUSE_OVER`,
+  SET_OVER_OFFER_ID: `SET_OVER_OFFER_ID`,
   LOAD_OFFERS: `LOAD_OFFERS`,
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
   LOAD_AUTH_INFO: `LOAD_AUTH_INFO`,
@@ -14,9 +14,9 @@ export const ActionType = {
   LOAD_REVIEWS: `LOAD_REVIEWS`,
 };
 
-export const setOverOfferId = (offer) => ({
-  type: ActionType.MOUSE_OVER,
-  payload: offer,
+export const setOverOfferId = (offerId) => ({
+  type: ActionType.SET_OVER_OFFER_ID,
+  payload: offerId,
 });
 
 export const setSortingTypeAction = (sortingType) => ({

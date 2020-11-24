@@ -1,7 +1,7 @@
 import {formatUpperCaseFirst} from "./utils";
 import {Sorting} from "./const";
 
-export const getCityOffers = (offers, city) => offers.filter((it) => it.city === city);
+export const getCityOffers = (offers, city) => offers.filter((item) => item.city === city);
 
 export const getParsedOffer = (data) => {
   return {
@@ -51,11 +51,11 @@ export const getParsedAuthInfo = (data) => {
   };
 };
 
-export const getParsedArray = (dataArray, getParsedItem) => dataArray.map((it) => getParsedItem(it));
+export const getParsedArray = (dataArray, getParsedItem) => dataArray.map((item) => getParsedItem(item));
 
 export const getOffersWithNewOfferByIndex = (offers, offer) => {
   const cloneOffers = offers.slice();
-  const index = cloneOffers.findIndex((it) => it.id === offer.id);
+  const index = cloneOffers.findIndex((item) => item.id === offer.id);
   if (index === -1) {
     return offers;
   }

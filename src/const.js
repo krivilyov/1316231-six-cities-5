@@ -1,11 +1,4 @@
-export const OfferTypes = {
-  APARTMENT: `Apartment`,
-  ROOM: `Room`,
-  HOUSE: `House`,
-  HOTEL: `Hotel`
-};
-
-export const OfferCardTypes = {
+export const OfferCardType = {
   INDEX: `index`,
   RELATED: `related`,
   FAVORITE: `favorite`,
@@ -38,7 +31,7 @@ export const Sorting = {
   TOP_RATED: `top-rated`,
 };
 
-export const SortingTitles = {
+export const SortingTitle = {
   [Sorting.POPULAR]: `Popular`,
   [Sorting.PRICE_TO_HIGH]: `Price: low to high`,
   [Sorting.PRICE_TO_LOW]: `Price: high to low`,
