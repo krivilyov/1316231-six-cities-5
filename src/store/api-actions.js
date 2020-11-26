@@ -30,8 +30,8 @@ export const login = ({login: email, password}) => (dispatch, _getState, api) =>
     .then((response) => {
       if (response.status !== HttpCode.UNAUTHORIZED) {
         const authInfo = getParsedAuthInfo(response.data);
-        dispatch(requireAuthorization(AuthorizationStatus.AUTH));
         dispatch(loadAuthInfo(authInfo));
+        dispatch(requireAuthorization(AuthorizationStatus.AUTH));
         return ResponseType.SUCCESS;
       } else {
         return response;
