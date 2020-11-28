@@ -4,7 +4,7 @@ import {MemoryRouter} from "react-router-dom";
 import configureMockStore from "redux-mock-store";
 import {Provider} from "react-redux";
 import {FavoritesPage} from "./favorites-page";
-import {testInitialState} from "../../../test-data";
+import {testInitialState} from "../../test-data";
 
 const mockStore = configureMockStore();
 const store = mockStore(testInitialState);

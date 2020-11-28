@@ -2,10 +2,10 @@ import React, {Fragment} from "react";
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
-import {AppRoute, OfferCardType} from "../../../const";
-import Header from "../../header/header";
-import {getBookmarkOffersByCity} from "../../../store/selectors";
-import OfferCard from "../../offer-card/offer-card";
+import {AppRoute, OfferCardType} from "../../const";
+import Header from "../header/header";
+import {getBookmarkOffersByCity} from "../../store/selectors";
+import OfferCard from "../offer-card/offer-card";
 import FavoritesEmptyPage from "../favorites-empty-page/favorites-empty-page";
 
 const FavoritesPage = (props) => {

@@ -1,9 +1,9 @@
 import React, {PureComponent, createRef} from 'react';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {login} from "../../../store/api-actions";
-import {AppRoute} from "../../../const";
-import Header from "../../header/header";
+import {login} from "../../store/api-actions";
+import {AppRoute} from "../../const";
+import Header from "../header/header";
 
 class LoginPage extends PureComponent {
   constructor(props) {

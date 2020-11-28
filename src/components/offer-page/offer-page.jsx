@@ -1,15 +1,15 @@
 import React, {PureComponent} from 'react';
 import PropTypes from "prop-types";
-import {offerPropType, reviewPropType} from "../../../prop-types";
-import {OfferCardType, AppRoute} from "../../../const";
-import OfferCard from "../../offer-card/offer-card";
-import ReviewsList from "../../reviews-list/reviews-list";
-import Map from "../../map/map";
+import {offerPropType, reviewPropType} from "../../prop-types";
+import {OfferCardType, AppRoute} from "../../const";
+import OfferCard from "../offer-card/offer-card";
+import ReviewsList from "../reviews-list/reviews-list";
+import Map from "../map/map";
 import {connect} from "react-redux";
-import {getChangedBookmarkOffer, getReviews, getRelatedOffers, getIsAuthorizedStatus} from "../../../store/selectors";
-import Header from "../../header/header";
-import {fetchIdOffer, fetchRelatedOffers, updateOfferBookmarkStatus, fetchBookmarkOffers, fetchReviews} from "../../../store/api-actions";
-import OfferBookmark from "../../offer-bookmark/offer-bookmark";
+import {getChangedBookmarkOffer, getReviews, getRelatedOffers, getIsAuthorizedStatus} from "../../store/selectors";
+import Header from "../header/header";
+import {fetchIdOffer, fetchRelatedOffers, updateOfferBookmarkStatus, fetchBookmarkOffers, fetchReviews} from "../../store/api-actions";
+import OfferBookmark from "../offer-bookmark/offer-bookmark";
 
 class OfferPage extends PureComponent {
   constructor(props) {

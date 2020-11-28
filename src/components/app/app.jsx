@@ -1,10 +1,10 @@
 import React from 'react';
 import {Router, Switch, Route, Redirect} from 'react-router-dom';
-import IndexPage from "../pages/index-page/index-page";
-import LoginPage from "../pages/login-page/login-page";
-import FavoritesPage from "../pages/favorites-page/favorites-page";
-import OfferPage from "../pages/offer-page/offer-page";
-import PageNotFound from "../pages/page-not-found/page-not-found";
+import IndexPage from "../index-page/index-page";
+import LoginPage from "../login-page/login-page";
+import FavoritesPage from "../favorites-page/favorites-page";
+import OfferPage from "../offer-page/offer-page";
+import PageNotFound from "../page-not-found/page-not-found";
 import {AppRoute, AuthorizationStatus} from "../../const";
 import PrivateRoute from "./../private-route/private-route";
 import browserHistory from "../../browser-history";

@@ -1,17 +1,17 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import OffersList from "../../offers-list/offers-list";
-import {offerPropType} from "../../../prop-types";
-import {OfferCardType, AuthorizationStatus, AppRoute} from "../../../const";
-import Map from "../../map/map";
-import Tabs from "../../tabs/tabs";
+import OffersList from "../offers-list/offers-list";
+import {offerPropType} from "../../prop-types";
+import {OfferCardType, AuthorizationStatus, AppRoute} from "../../const";
+import Map from "../map/map";
+import Tabs from "../tabs/tabs";
 import {connect} from "react-redux";
-import {setSortingTypeAction, changeCityAction} from "../../../store/action";
-import OffersSorting from "../../offers-sorting/offers-sorting";
-import {getCurrentSortedCityOffers} from "../../../store/selectors";
+import {setSortingTypeAction, changeCityAction} from "../../store/action";
+import OffersSorting from "../offers-sorting/offers-sorting";
+import {getCurrentSortedCityOffers} from "../../store/selectors";
 import IndexEmptyPage from "../index-empty-page/index-empty-page";
-import {formatUpperCaseFirst} from "../../../utils";
-import Header from "../../header/header";
+import {formatUpperCaseFirst} from "../../utils";
+import Header from "../header/header";
 
 const IndexPage = (props) => {
   const {offers, activeCity, changeCity, onOptionClick} = props;

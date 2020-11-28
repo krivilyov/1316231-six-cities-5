@@ -4,8 +4,8 @@ import {Provider} from "react-redux";
 import {MemoryRouter} from "react-router-dom";
 import configureMockStore from "redux-mock-store";
 import {OfferPage} from "./offer-page";
-import {testInitialState} from "../../../test-data";
-import {formatUpperCaseFirst} from "../../../utils";
+import {testInitialState} from "../../test-data";
+import {formatUpperCaseFirst} from "../../utils";
 
 const mockStore = configureMockStore();
 const store = mockStore(testInitialState);

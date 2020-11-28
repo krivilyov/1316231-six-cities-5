@@ -1,30 +1,26 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import {PrivateRoute} from "./private-route";
+import {AuthorizationStatus} from "../../const";
+import configureMockStore from "redux-mock-store";
+import {testInitialState} from "../../test-data";
 import {Provider} from "react-redux";
 import {MemoryRouter} from "react-router-dom";
-import configureMockStore from "redux-mock-store";
-import {IndexPage} from "./index-page";
-import {AuthorizationStatus} from "../../../const";
-import {testInitialState} from "../../../test-data";
 
 const mockStore = configureMockStore();
 const store = mockStore(testInitialState);
 
 const noop = () => {};
-
-it(`Main should render correctly`, () => {
+it(`PrivateRoute should render correctly`, () => {
   const tree = renderer
     .create(
         <Provider store={store}>
           <MemoryRouter>
-            <IndexPage
-              changeCity={noop}
-              onOptionClick={noop}
-              offers={[]}
-              activeCity={`City1`}
-              userEMail={`user@mail.com`}
-              userAvatar={`avatar-url`}
+            <PrivateRoute
               authorizationStatus={AuthorizationStatus.AUTH}
+              exact={true}
+              path={`/login`}
+              render={noop}
             />
           </MemoryRouter>
         </Provider>
